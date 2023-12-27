@@ -25,9 +25,8 @@ namespace ASProjektMOB
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainTabbedPage());
+            MainPage = new NavigationPage(new LoginRegisterPage(false));
         }
-
         protected override void OnStart()
         {
         }

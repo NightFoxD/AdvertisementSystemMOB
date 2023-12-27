@@ -12,28 +12,22 @@ namespace ASProjektMOB.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
-        public SettingsPage()
+        Page page;
+        public SettingsPage(Page page)
         {
             InitializeComponent();
+            this.page = page;
         }
 
-        private void Btn_LogOut_Clicked(object sender, EventArgs e)
+        private async void Btn_LogOut_Clicked(object sender, EventArgs e)
         {
-            
-        }
-        private void Btn_Register_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new LoginRegisterPage(true));
+            await page.Navigation.PopAsync();
         }
         private void Btn_Settings_Clicked(object sender, EventArgs e)
         {
 
         }
 
-        private void Btn_LogIn_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new LoginRegisterPage(false));
-        }
 
       
     }

@@ -18,7 +18,7 @@
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="Lbl_Admin" Text="Admin ?"/>
                 <Switch x:Name="Stch_Admin" Toggled="Stch_Admin_Toggled"/>
-            </StackLayout>           
+            </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Firma ?"/>
                 <Switch x:Name="Stch_Company" Toggled="Stch_Company_Toggled"/>

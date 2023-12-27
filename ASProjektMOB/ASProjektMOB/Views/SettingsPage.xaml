@@ -6,8 +6,6 @@
     <ContentPage.Content>
         <ScrollView Margin="10,30,10,20">
             <StackLayout Orientation="Vertical" >
-                <Button x:Name="Btn_LogIn" Text="Zalougj się" Clicked="Btn_LogIn_Clicked"/>
-                <Button x:Name="Btn_Register" Grid.Row="1" Text="Zarejestruj się" Clicked="Btn_Register_Clicked"/>
                 <Button x:Name="Btn_Settings" Grid.Row="2" Text="Ustawienia" Clicked="Btn_Settings_Clicked"/>
                 <Button x:Name="Btn_LogOut" Grid.Row="3" Text="Wyloguj się" Clicked="Btn_LogOut_Clicked"/>
             </StackLayout>

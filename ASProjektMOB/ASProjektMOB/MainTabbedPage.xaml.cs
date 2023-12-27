@@ -37,24 +37,23 @@ namespace ASProjektMOB
         }
         public void Initialize()
         {
-            Children.Clear();
             NavigationPage HomePage = new NavigationPage(new HomePage());
             HomePage.IconImageSource = "icon_home.png";
             HomePage.Title = "Strona główna";
-            Children.Add(HomePage);
+            this.Children.Add(HomePage);
             if(User != null && User.AccountTypeID == 2 ) 
             {
                 NavigationPage AdminPanelPage = new NavigationPage(new AdminPanelPage());
                 AdminPanelPage.IconImageSource = "icon_home.png";
                 AdminPanelPage.Title = "Panel";
-                Children.Add(AdminPanelPage);
+                this.Children.Add(AdminPanelPage);
             }
             if (Company != null)
             {
                 NavigationPage CompanyPanelPage = new NavigationPage(new CompanyPanelPage());
                 CompanyPanelPage.IconImageSource = "icon_home.png";
                 CompanyPanelPage.Title = "Panel";
-                Children.Add(CompanyPanelPage);
+                this.Children.Add(CompanyPanelPage);
             }
             
             if(User != null && User.AccountTypeID == 1)
@@ -62,19 +61,19 @@ namespace ASProjektMOB
                 NavigationPage ProfiePage = new NavigationPage(new ProfilePage());
                 ProfiePage.IconImageSource = "icon_user.png";
                 ProfiePage.Title = "Profil";
-                Children.Add(ProfiePage);
+                this.Children.Add(ProfiePage);
             }
             if(Company != null)
             {
                 NavigationPage CompanyPage = new NavigationPage(new CompanyPage());
                 CompanyPage.IconImageSource = "icon_home.png";
                 CompanyPage.Title = "Firma";
-                Children.Add(CompanyPage);
+                this.Children.Add(CompanyPage);
             }
-            NavigationPage SettingsPage = new NavigationPage(new SettingsPage());
+            NavigationPage SettingsPage = new NavigationPage(new SettingsPage(CurrentPage));
             SettingsPage.IconImageSource = "icon_settings.png";
             SettingsPage.Title = "Ustawienia";
-            Children.Add(SettingsPage);
+            this.Children.Add(SettingsPage);
         }
     }
 }
