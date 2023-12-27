@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ASProjektMOB.Views.LoginRegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" Margin="0,30,0,30" Padding="25" >
+            <Image Source="icon_swiftlly_transparent_fullname.png" Aspect="Fill"/>
+            <Label  Text="Login" FontSize="25"/>
+            <Entry x:Name="Etr_Login" Keyboard="Default" Placeholder="Login"/>
+            <Label x:Name="Lbl_CompnayName" Text="Nazwa Firmy" FontSize="25"/>
+            <Entry x:Name="Etr_CompanyName"  Keyboard="Default" Placeholder="Login"/>
+            <Label  Text="Hasło: " FontSize="25"/>
+            <Entry x:Name="Password_1" Keyboard="Default" IsPassword="True" Placeholder="Password"/>
+            <Label x:Name="Lbl_SecondPassword" Text="Powtórz hasło: " FontSize="25"/>
+            <Entry x:Name="Password_2" Keyboard="Default" IsPassword="True" Placeholder="Password"/>
+            <Button  x:Name="Btn_LoginRegister" Text="Zaloguj się" Clicked="Btn_LoginRegister_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
