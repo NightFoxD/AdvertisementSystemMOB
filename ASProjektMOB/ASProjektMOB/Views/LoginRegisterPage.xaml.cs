@@ -135,12 +135,6 @@ namespace ASProjektMOB.Views
             Lbl_CompnayName.IsVisible = Stch_Company.IsToggled;
             Etr_CompanyName.IsVisible = Stch_Company.IsToggled;
         }
-
-        private void Stch_Admin_Toggled(object sender, ToggledEventArgs e)
-        {
-            Stch_Company.IsToggled = !Stch_Admin.IsToggled;
-        }
-
         private void Btn_LoginRegister_Swap_Clicked(object sender, EventArgs e)
         {
             FlagLoginRegister = !FlagLoginRegister;

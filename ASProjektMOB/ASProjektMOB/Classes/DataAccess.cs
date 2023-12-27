@@ -3,6 +3,7 @@ using ASProjektWPF.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -216,9 +217,8 @@ namespace AdvertisementSystem.Classes
         {
             return _database.Table<Experience>().Where(experience => experience.UserID == id).ToListAsync().Result.First();
         }
-        public int Add_Experience(Experience experience, User user)
+        public int Add_Experience(Experience experience)
         {
-            experience.UserID = user.UserID;
             return _database.InsertAsync(experience).Result;
         }
         public int Update_Experience(Experience experience)
@@ -374,7 +374,11 @@ namespace AdvertisementSystem.Classes
                 return null;
             }
         }
-        public int InserUser(User newUser)
+        public User GetUser(User user)
+        {
+            return _database.Table<User>().Where(item => item.Login == user.Login && item.Password == user.Password).FirstAsync().Result;
+        }
+            public int InserUser(User newUser)
         {
             return _database.InsertAsync(newUser).Result;
         }

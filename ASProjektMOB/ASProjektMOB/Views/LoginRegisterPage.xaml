@@ -17,7 +17,7 @@
             <Entry x:Name="Etr_Password_2" Keyboard="Default" IsPassword="True" Placeholder="Password"/>
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="Lbl_Admin" Text="Admin ?"/>
-                <Switch x:Name="Stch_Admin" Toggled="Stch_Admin_Toggled"/>
+                <Switch x:Name="Stch_Admin"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Firma ?"/>

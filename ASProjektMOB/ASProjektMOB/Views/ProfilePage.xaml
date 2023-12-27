@@ -83,7 +83,7 @@
                                 <Entry x:Name="Etr_CurrentOccupation" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                                 <Label x:Name="Lbl_CurrentOccupation" Grid.Row="2" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
                                 <Label Grid.Row="3" Text="Państwo:"  Style="{StaticResource Lbl_Text}"/>
-                                <Picker x:Name="Pckr_Country" Grid.Row="3" Grid.Column="1"/>
+                                <Picker x:Name="Pckr_Country" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
                                 <Label x:Name="Lbl_Country" Grid.Row="3" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
                                 <Label Grid.Row="4" Text="Miasto:"  Style="{StaticResource Lbl_Text}"/>
                                 <Entry x:Name="Etr_City" Grid.Row="4" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
@@ -98,7 +98,7 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -136,7 +136,7 @@
                 <Frame Grid.Row="3" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,0">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="90"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -146,32 +146,79 @@
                         <Label Text="Doświadczenie zawodowe" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
                         <Button x:Name="Btn_AddFrom_ExperienceWork" Text="Dodaj nowy" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_AddFrom_ExperienceWork_Clicked"/>
                         <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <Label Text="Stanowisko:"  Style="{StaticResource Lbl_Text}"/>
-                                <Entry x:Name="Etr_Emaill" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
-                                <Label Text="Lokalizacja:" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
-                                <Entry x:Name="Etr_Localization" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
-                                <Label Text="Nazwa firmy:" Grid.Row="2" Style="{StaticResource Lbl_Text}"/>
-                                <Entry x:Name="Etr_CompanyName" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
-                                <Label Text="Od:" Grid.Row="3" Style="{StaticResource Lbl_Text}"/>
-                                <DatePicker x:Name="DP_StartPeriod" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
-                                <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
-                                <DatePicker x:Name="DP_EndPeriod" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
-                                <Label Text="Obowiązki:" Grid.Row="5" Style="{StaticResource Lbl_Text}"/>
-                                <Editor x:Name="Etr_Responsibilities" TextColor="Black" Grid.Row="5" Grid.Column="1"/>
-                                <Button x:Name="Btn_Cancel_ExperienceWork" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_ExperienceWork_Clicked"/>
-                                <Button x:Name="Btn_Add_ExperienceWork" Text="Dodaj" Grid.Row="6" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Add_ExperienceWork_Clicked"/>
-                            </Grid>
+                            <StackLayout>
+                                <Grid x:Name="G_ExperienceWorkForm">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="Stanowisko:"  Style="{StaticResource Lbl_Text}"/>
+                                    <Entry x:Name="Etr_Position" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                    <Label Text="Lokalizacja:" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                                    <Entry x:Name="Etr_Localization" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                    <Label Text="Nazwa firmy:" Grid.Row="2" Style="{StaticResource Lbl_Text}"/>
+                                    <Entry x:Name="Etr_CompanyName" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                    <Label Text="Od:" Grid.Row="3" Style="{StaticResource Lbl_Text}"/>
+                                    <DatePicker x:Name="DP_StartPeriod" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+                                    <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
+                                    <DatePicker x:Name="DP_EndPeriod" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+                                    <Label Text="Obowiązki:" Grid.Row="5" Style="{StaticResource Lbl_Text}"/>
+                                    <Editor x:Name="Etr_Responsibilities" TextColor="Black" Grid.Row="5" Grid.Column="1"/>
+                                    <Button x:Name="Btn_Cancel_ExperienceWork" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_ExperienceWork_Clicked"/>
+                                    <Button x:Name="Btn_Add_ExperienceWork" Text="Dodaj" Grid.Row="6" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Add_ExperienceWork_Clicked"/>
+                                </Grid>
+                                <ListView SelectionMode="None" x:Name="LV_ExperienceWork" RowHeight="200">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <Frame Padding="2" BackgroundColor="Gray" CornerRadius="15" Margin="0,10,0,0">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="auto"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="auto"/>
+                                                        </Grid.RowDefinitions>
+                                                        <StackLayout>
+                                                            <Label TextColor="Black" Text="{Binding Position}" Margin="10,0,0,0"/>
+                                                            <Label Text="{Binding StartPayment,StringFormat=' / {0:MMMM yyyy} - '}" TextColor="Gray" Margin="10,0,0,0"/>
+                                                            <Label TextColor="Gray" Margin="10,0,0,0">
+                                                                <Label.Style>
+                                                                    <Style TargetType="Label">
+                                                                        <Setter Property="Text" Value="{Binding EndPayment, StringFormat='{}{0:MMMM yyyy}'}"/>
+                                                                        <Style.Triggers>
+                                                                            <DataTrigger TargetType="Label" Binding="{Binding EndPayment,StringFormat='{}{0:}'}" Value="{x:Null}">
+                                                                                <Setter Property="Text" Value="Obecnie"/>
+                                                                            </DataTrigger>
+                                                                        </Style.Triggers>
+                                                                    </Style>
+                                                                </Label.Style>
+                                                            </Label>
+                                                        </StackLayout>
+                                                        <Button x:Name="Del_ExperienceWorkItem" Grid.Column="1" Text="Usuń" Margin="10" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Del_ExperienceWorkItem_Clicked" CommandParameter="{Binding .}"/>
+                                                        <Button x:Name="Edit_ExperienceWorkItem" Grid.Column="1" Grid.Row="1" Margin="10" Text="Edytuj" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Edit_ExperienceWorkItem_Clicked" CommandParameter="{Binding .}"/>
+                                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Margin="10,0,0,0">
+                                                            <Label Text="{Binding Company}"/>
+                                                            <Label Text="{Binding Localization, StringFormat=' ({0})'}" TextColor="Gray"/>
+                                                        </StackLayout>
+                                                        <Label Text="{Binding Responsibilities}" Grid.ColumnSpan="2" Grid.Row="2" Margin="10,0,0,0"/>
+                                                    </Grid>
+                                                </Frame>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+                           
                         </Frame>
                     </Grid>
                 </Frame>

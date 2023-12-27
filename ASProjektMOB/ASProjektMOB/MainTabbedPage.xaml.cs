@@ -58,7 +58,7 @@ namespace ASProjektMOB
             
             if(User != null && User.AccountTypeID == 1)
             {
-                NavigationPage ProfiePage = new NavigationPage(new ProfilePage());
+                NavigationPage ProfiePage = new NavigationPage(new ProfilePage(User));
                 ProfiePage.IconImageSource = "icon_user.png";
                 ProfiePage.Title = "Profil";
                 this.Children.Add(ProfiePage);

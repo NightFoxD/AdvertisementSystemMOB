@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ASProjektMOB.Views.Edit_ProfileItemPage">
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="Lbl_Text">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+        <Style TargetType="Entry" x:Key="Etry_Text">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid x:Name="G_ExperienceWorkForm" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Stanowisko:"  Style="{StaticResource Lbl_Text}"/>
+                <Entry x:Name="Etr_Position" Text="{Binding Position}" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Lokalizacja:" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                <Entry x:Name="Etr_Localization" Text="{Binding Localization}" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Nazwa firmy:" Grid.Row="2" Style="{StaticResource Lbl_Text}"/>
+                <Entry x:Name="Etr_CompanyName" Text="{Binding Company}" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Od:" Grid.Row="3" Style="{StaticResource Lbl_Text}"/>
+                <DatePicker x:Name="DP_StartPeriod" Date="{Binding StartPayment}" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
+                <DatePicker x:Name="DP_EndPeriod" Date="{Binding EndPayment}" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+                
+                <Editor x:Name="Etr_Responsibilities" Text="{Binding Responsibilities}" TextColor="Black" Grid.Row="5" Grid.Column="1"/>
+                <Button x:Name="Btn_Cancel_ExperienceWork" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>
+                <Button x:Name="Btn_Update_ExperienceWork" Text="Dodaj" Grid.Row="6" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Update_Clicked"/>
+            </Grid>
+            <Grid x:Name="G_Education" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Nazwa szkoły:"  Style="{StaticResource Lbl_Text}"/>
+                <Entry x:Name="Etr_SchoolName" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Poziom wykrztałcenia:" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                <Picker x:Name="Pck_Level" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Kierunek:" Grid.Row="2" Style="{StaticResource Lbl_Text}"/>
+                <Entry x:Name="Etr_Direction" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Od:" Grid.Row="3" Style="{StaticResource Lbl_Text}"/>
+                <DatePicker x:Name="DP_StartEducation" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
+                <DatePicker x:Name="DP_EndEducation" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+                <Button x:Name="Btn_Cancel_Education" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>
+                <Button x:Name="Btn_Add_Education" Text="Dodaj" Grid.Row="6" BackgroundColor="#e8e8e8" Grid.Column="1" Style="{StaticResource Btn_Edit}" Clicked="Btn_Update_Clicked"/>
+            </Grid>
+            <Grid x:Name="G_Language" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Nazwa języka:"  Style="{StaticResource Lbl_Text}"/>
+                <Entry x:Name="Etr_LanguageName" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Poziom :" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                <Picker x:Name="Pck_LanguageLevel" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Button x:Name="Btn_Cancel_Language" Text="Annuluj" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>
+                <Button x:Name="Btn_Add_Language" Text="Dodaj" Grid.Row="2" BackgroundColor="#e8e8e8" Grid.Column="1" Style="{StaticResource Btn_Edit}" Clicked="Btn_Update_Clicked"/>
+            </Grid>
+            <Grid x:Name="G_Link" IsVisible="false">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Adres URL:"  Style="{StaticResource Lbl_Text}"/>
+                <Entry x:Name="Etr_URL" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Label Text="Type linku :" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                <Picker x:Name="Pck_LinkType" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Button x:Name="Btn_Cancel_Link" Text="Annuluj" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>
+                <Button x:Name="Btn_Add_Link" Text="Dodaj" Grid.Row="2" BackgroundColor="#e8e8e8" Grid.Column="1" Style="{StaticResource Btn_Edit}" Clicked="Btn_Update_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

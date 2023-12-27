@@ -46,5 +46,16 @@ namespace ASProjektWPF.Classes
                 return false;
             }
         }
+        public static bool IsCorrectEmail(string text)
+        {
+            if (text == null || text.Length == 0) { return false; }
+            if (Regex.IsMatch(text, "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"))
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
     }
 }
