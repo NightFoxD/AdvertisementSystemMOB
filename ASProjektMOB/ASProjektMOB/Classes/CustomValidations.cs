@@ -12,6 +12,7 @@ namespace ASProjektWPF.Classes
 
         public static bool IsCorrectText(string text)
         {
+            if(text == null || text.Length == 0) {  return false; }
             if (Regex.IsMatch(text,"^[a-zA-Z ]+$"))
             {
                 return true;
@@ -23,6 +24,7 @@ namespace ASProjektWPF.Classes
         }
         public static bool IsCorrectNumbers(string text)
         {
+            if (text == null || text.Length == 0) { return false; }
             if (Regex.IsMatch(text, "^[0-9]+$"))
             {
                 return true;
@@ -34,6 +36,7 @@ namespace ASProjektWPF.Classes
         }
         public static bool IsCorrectTextAndNumbers(string text)
         {
+            if (text == null || text.Length == 0) { return false; }
             if (Regex.IsMatch(text, "^[a-zA-Z0-9 ]+$"))
             {
                 return true;

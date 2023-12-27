@@ -15,7 +15,7 @@ namespace AdvertisementSystem.Classes
         public readonly SQLiteAsyncConnection _database;
         public DataAccess(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
+            _database = new SQLiteAsyncConnection(dbPath,true);
             _database.CreateTableAsync<Announcment>().Wait();
             _database.CreateTableAsync<Application>().Wait();
             _database.CreateTableAsync<Category>().Wait();
@@ -362,6 +362,17 @@ namespace AdvertisementSystem.Classes
         public List<User> GetUserList()
         {
             return _database.Table<User>().ToListAsync().Result;
+        }
+        public User GetUser(string login, string password)
+        {
+            try
+            {
+                return _database.Table<User>().Where(item => item.Login == login && item.Password == password).FirstAsync().Result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         public int InserUser(User newUser)
         {

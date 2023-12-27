@@ -19,7 +19,7 @@ namespace ASProjektMOB.Views
 
         private void Btn_LogOut_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new LoginRegisterPage(false));
+            
         }
         private void Btn_Register_Clicked(object sender, EventArgs e)
         {
@@ -32,7 +32,7 @@ namespace ASProjektMOB.Views
 
         private void Btn_LogIn_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new LoginRegisterPage(false));
         }
 
       

@@ -17,7 +17,7 @@ namespace ASProjektMOB
             {
                 if (Database == null)
                 {
-                    Database = new DataAccess(Path.Combine(Directory.GetCurrentDirectory(), "AdvertisementSystem_Mob.db3"));
+                    Database = new DataAccess(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AdvertisementSystem_Mob.db3"));
                 }
                 return Database;
             }

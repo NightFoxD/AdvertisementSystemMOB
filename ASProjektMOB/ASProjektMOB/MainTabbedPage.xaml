@@ -2,12 +2,9 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.MainTabbedPage"
-            xmlns:Link ="clr-namespace:ASProjektMOB.Views"
             xmlns:android ="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             NavigationPage.HasNavigationBar="False"
             >
   <!--Pages can be added as references or inline-->
-    <Link:HomePage Title="Strona główna" IconImageSource="icon_home.png"/>
-    <Link:SettingsPage Title="Ustawienia" IconImageSource="icon_settings.png"/>
 </TabbedPage>

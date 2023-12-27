@@ -12,10 +12,18 @@
             <Label x:Name="Lbl_CompnayName" Text="Nazwa Firmy" FontSize="25"/>
             <Entry x:Name="Etr_CompanyName"  Keyboard="Default" Placeholder="Login"/>
             <Label  Text="Hasło: " FontSize="25"/>
-            <Entry x:Name="Password_1" Keyboard="Default" IsPassword="True" Placeholder="Password"/>
+            <Entry x:Name="Etr_Password_1" Keyboard="Default" IsPassword="True" Placeholder="Password"/>
             <Label x:Name="Lbl_SecondPassword" Text="Powtórz hasło: " FontSize="25"/>
-            <Entry x:Name="Password_2" Keyboard="Default" IsPassword="True" Placeholder="Password"/>
-            <Button  x:Name="Btn_LoginRegister" Text="Zaloguj się" Clicked="Btn_LoginRegister_Clicked"/>
+            <Entry x:Name="Etr_Password_2" Keyboard="Default" IsPassword="True" Placeholder="Password"/>
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="Lbl_Admin" Text="Admin ?"/>
+                <Switch x:Name="Stch_Admin" Toggled="Stch_Admin_Toggled"/>
+            </StackLayout>           
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Firma ?"/>
+                <Switch x:Name="Stch_Company" Toggled="Stch_Company_Toggled"/>
+            </StackLayout>
+            <Button x:Name="Btn_LoginRegister" Clicked="Btn_LoginRegister_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
