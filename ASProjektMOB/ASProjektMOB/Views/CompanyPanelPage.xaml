@@ -4,10 +4,12 @@
              x:Class="ASProjektMOB.Views.CompanyPanelPage"
              NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Button Text="Dodaj ogłoszenie"/>
+                <Button Text="Edytuj ogłoszenie"/>
+            </StackLayout>
+            
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

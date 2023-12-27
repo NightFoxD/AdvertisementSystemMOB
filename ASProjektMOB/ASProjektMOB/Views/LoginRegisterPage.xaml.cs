@@ -25,14 +25,15 @@ namespace ASProjektMOB.Views
             Etr_Password_2.IsVisible = flagLoginRegister;
             if (flagLoginRegister)
             {
+                Btn_LoginRegister_Swap.Text = "Zaloguj się";
                 Btn_LoginRegister.Text = "Zarejetruj się";
             }
             else
             {
                 Lbl_Admin.IsVisible = false;
                 Stch_Admin.IsVisible = false;
-
-                Btn_LoginRegister.Text = "Zaloguj sie się";
+                Btn_LoginRegister_Swap.Text = "Zarejetruj się";
+                Btn_LoginRegister.Text = "Zaloguj się";
             }
         }
 
@@ -138,6 +139,30 @@ namespace ASProjektMOB.Views
         private void Stch_Admin_Toggled(object sender, ToggledEventArgs e)
         {
             Stch_Company.IsToggled = !Stch_Admin.IsToggled;
+        }
+
+        private void Btn_LoginRegister_Swap_Clicked(object sender, EventArgs e)
+        {
+            FlagLoginRegister = !FlagLoginRegister;
+            Lbl_SecondPassword.IsVisible = FlagLoginRegister;
+            Etr_Password_2.IsVisible = FlagLoginRegister;
+            Lbl_Admin.IsVisible = FlagLoginRegister;
+            Stch_Admin.IsVisible = FlagLoginRegister;
+            Etr_CompanyName.IsVisible = FlagLoginRegister;
+            Lbl_CompnayName.IsVisible = FlagLoginRegister;
+            if (FlagLoginRegister)
+            {
+                Etr_CompanyName.IsVisible = Stch_Company.IsToggled;
+                Lbl_CompnayName.IsVisible = Stch_Company.IsToggled;
+                Btn_LoginRegister_Swap.Text = "Zaloguj się";
+                Btn_LoginRegister.Text = "Zarejetruj się";
+            }
+            else
+            {
+                
+                Btn_LoginRegister_Swap.Text = "Zarejetruj się";
+                Btn_LoginRegister.Text = "Zaloguj się";
+            }
         }
     }
 }

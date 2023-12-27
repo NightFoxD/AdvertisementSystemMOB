@@ -70,7 +70,7 @@ namespace ASProjektMOB
                 CompanyPage.Title = "Firma";
                 this.Children.Add(CompanyPage);
             }
-            NavigationPage SettingsPage = new NavigationPage(new SettingsPage(CurrentPage));
+            NavigationPage SettingsPage = new NavigationPage(new SettingsPage(this));
             SettingsPage.IconImageSource = "icon_settings.png";
             SettingsPage.Title = "Ustawienia";
             this.Children.Add(SettingsPage);

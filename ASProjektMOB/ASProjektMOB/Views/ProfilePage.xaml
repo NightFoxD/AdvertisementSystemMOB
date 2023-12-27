@@ -2,12 +2,332 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.ProfilePage"
-             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#e0e0e0"
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="Lbl_Text">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+        <Style TargetType="Entry" x:Key="Etry_Text">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Padding="10" BackgroundColor="Transparent" Margin="20,100,20,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Frame BackgroundColor="Transparent" Padding="0" CornerRadius="15" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start">
+                        <Image Source="icon_defaultpfp.png"/>
+                    </Frame>
+                </Grid>
+                <Frame Grid.Row="1" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,0,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Dane osobowe" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Button x:Name="Btn_Edit_UserData" Text="Edytuj" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_Edit_UserData_Clicked"/>
+                        <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Imie:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_Name" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label x:Name="Lbl_Name" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Label Grid.Row="1" Text="Nazwisko:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_Surname" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label x:Name="Lbl_Surname" Grid.Row="1" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Label Grid.Row="2" Text="Aktualne stanowisko:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_CurrentOccupation" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label x:Name="Lbl_CurrentOccupation" Grid.Row="2" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Label Grid.Row="3" Text="Państwo:"  Style="{StaticResource Lbl_Text}"/>
+                                <Picker x:Name="Pckr_Country" Grid.Row="3" Grid.Column="1"/>
+                                <Label x:Name="Lbl_Country" Grid.Row="3" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Label Grid.Row="4" Text="Miasto:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_City" Grid.Row="4" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label x:Name="Lbl_City" Grid.Row="4" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Button x:Name="Btn_Cancel_UserData" Text="Annuluj" Grid.Row="5" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_Cancel_UserData_Clicked"/>
+                                <Button x:Name="Btn_Save_UserData" Text="Zapisz" Grid.Column="1" Grid.Row="5" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_Save_UserData_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="2" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Dane kontaktowe" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Button x:Name="Btn_Edit_ContactData" Text="Edytuj" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_Edit_ContactData_Clicked"/>
+                        <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="E-mail:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_Email" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label x:Name="Lbl_Email" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Label Grid.Row="1" Text="Numer telefonu:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_PhoneNumber" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label x:Name="Lbl_PhoneNumber" Grid.Row="1" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Label Grid.Row="2" Text="Data urodzenia:"  Style="{StaticResource Lbl_Text}"/>
+                                <DatePicker x:Name="Etr_BirthDate" Grid.Row="2" Grid.Column="1" />
+                                <Label x:Name="Lbl_BirthDate" Grid.Row="2" Grid.Column="1" Style="{StaticResource Lbl_Text}"/>
+                                <Button x:Name="Btn_Cancel_ContactData" Text="Annuluj" Grid.Row="3" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_Cancel_ContactData_Clicked"/>
+                                <Button x:Name="Btn_Save_ContactData" Text="Zapisz" Grid.Column="1" Grid.Row="3" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_Save_ContactData_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="3" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Doświadczenie zawodowe" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Button x:Name="Btn_AddFrom_ExperienceWork" Text="Dodaj nowy" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_AddFrom_ExperienceWork_Clicked"/>
+                        <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Stanowisko:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_Emaill" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Lokalizacja:" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_Localization" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Nazwa firmy:" Grid.Row="2" Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_CompanyName" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Od:" Grid.Row="3" Style="{StaticResource Lbl_Text}"/>
+                                <DatePicker x:Name="DP_StartPeriod" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+                                <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
+                                <DatePicker x:Name="DP_EndPeriod" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+                                <Label Text="Obowiązki:" Grid.Row="5" Style="{StaticResource Lbl_Text}"/>
+                                <Editor x:Name="Etr_Responsibilities" TextColor="Black" Grid.Row="5" Grid.Column="1"/>
+                                <Button x:Name="Btn_Cancel_ExperienceWork" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_ExperienceWork_Clicked"/>
+                                <Button x:Name="Btn_Add_ExperienceWork" Text="Dodaj" Grid.Row="6" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Add_ExperienceWork_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="4" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Wykształcenie" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Button x:Name="Btn_AddFrom_Education" Text="Dodaj nowy" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_AddFrom_Education_Clicked"/>
+                        <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Nazwa szkoły:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_SchoolName" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Poziom wykrztałcenia:" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                                <Picker x:Name="Pck_Level" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Kierunek:" Grid.Row="2" Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_Direction" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Od:" Grid.Row="3" Style="{StaticResource Lbl_Text}"/>
+                                <DatePicker x:Name="DP_StartEducation" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+                                <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
+                                <DatePicker x:Name="DP_EndEducation" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+                                <Button x:Name="Btn_Cancel_Education" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Education_Clicked"/>
+                                <Button x:Name="Btn_Add_Education" Text="Dodaj" Grid.Row="6" BackgroundColor="#e8e8e8" Grid.Column="1" Style="{StaticResource Btn_Edit}" Clicked="Btn_Add_Education_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="5" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Języki" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Button x:Name="Btn_AddFrom_Language" Text="Dodaj nowy" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_AddFrom_Language_Clicked"/>
+                        <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Nazwa języka:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_LanguageName" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Poziom :" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                                <Picker x:Name="Pck_LanguageLevel" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Button x:Name="Btn_Cancel_Language" Text="Annuluj" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Language_Clicked"/>
+                                <Button x:Name="Btn_Add_Language" Text="Dodaj" Grid.Row="2" BackgroundColor="#e8e8e8" Grid.Column="1" Style="{StaticResource Btn_Edit}" Clicked="Btn_Add_Language_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="6" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Języki" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Frame Grid.Row="1" BackgroundColor="#e8e8e8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Nazwa języka:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_SkillName" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Button x:Name="Btn_Add_Skills" Text="Dodaj" Grid.Row="2" BackgroundColor="#e8e8e8" Grid.ColumnSpan="2" Style="{StaticResource Btn_Edit}" Clicked="Btn_Add_Skills_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="7" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Linki" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Button x:Name="Btn_AddFrom_Link" Text="Dodaj nowy" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10" Clicked="Btn_AddFrom_Language_Clicked"/>
+                        <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Adres URL:"  Style="{StaticResource Lbl_Text}"/>
+                                <Entry x:Name="Etr_URL" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Label Text="Type linku :" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
+                                <Picker x:Name="Pck_LinkType" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                                <Button x:Name="Btn_Cancel_Link" Text="Annuluj" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Link_Clicked"/>
+                                <Button x:Name="Btn_Add_Link" Text="Dodaj" Grid.Row="2" BackgroundColor="#e8e8e8" Grid.Column="1" Style="{StaticResource Btn_Edit}" Clicked="Btn_Add_Link_Clicked"/>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </Frame>
+                <Frame Grid.Row="8" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,20,20,70">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Zaaplikowania" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
+                        <Frame Grid.Row="1" BackgroundColor="#e8e8e8">
+                            <ListView>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Frame>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

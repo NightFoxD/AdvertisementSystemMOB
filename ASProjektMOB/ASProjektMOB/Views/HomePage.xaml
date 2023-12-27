@@ -4,8 +4,26 @@
              x:Class="ASProjektMOB.Views.HomePage"
              NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-           
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Strefa ofert" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
+                <CarouselView x:Name="CV_Announcments">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <Button Text="Zobacz więcej" HorizontalOptions="Center" Clicked="Btn_More_Announcments_Click"/>
+                <Label Text="Pracodawcy których warto znać" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
+                <CarouselView x:Name="CV_Comapnies">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

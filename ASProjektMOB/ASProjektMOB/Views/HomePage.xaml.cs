@@ -16,5 +16,10 @@ namespace ASProjektMOB.Views
         {
             InitializeComponent();
         }
+
+        private void Btn_More_Announcments_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

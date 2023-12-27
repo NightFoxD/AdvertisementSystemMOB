@@ -5,6 +5,9 @@
             xmlns:android ="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom"
             NavigationPage.HasNavigationBar="False"
+            BackgroundColor="#a4a4a4"
+            SelectedTabColor="Black"
+            BarTextColor="White"
             >
   <!--Pages can be added as references or inline-->
 </TabbedPage>
