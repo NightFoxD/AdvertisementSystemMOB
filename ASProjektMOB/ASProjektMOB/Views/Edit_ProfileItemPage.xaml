@@ -43,7 +43,7 @@
                 <DatePicker x:Name="DP_StartPeriod" Date="{Binding StartPayment}" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
                 <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
                 <DatePicker x:Name="DP_EndPeriod" Date="{Binding EndPayment}" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
-                
+                <Label Text="Obowiązki:" Grid.Row="5" Style="{StaticResource Lbl_Text}"/>
                 <Editor x:Name="Etr_Responsibilities" Text="{Binding Responsibilities}" TextColor="Black" Grid.Row="5" Grid.Column="1"/>
                 <Button x:Name="Btn_Cancel_ExperienceWork" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>
                 <Button x:Name="Btn_Update_ExperienceWork" Text="Dodaj" Grid.Row="6" Grid.Column="1" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Update_Clicked"/>
@@ -60,15 +60,15 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Nazwa szkoły:"  Style="{StaticResource Lbl_Text}"/>
-                <Entry x:Name="Etr_SchoolName" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Entry x:Name="Etr_SchoolName" Text="{Binding ShoolName}" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                 <Label Text="Poziom wykrztałcenia:" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
-                <Picker x:Name="Pck_Level" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Picker x:Name="Pck_Level" SelectedItem="{Binding Level}" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                 <Label Text="Kierunek:" Grid.Row="2" Style="{StaticResource Lbl_Text}"/>
-                <Entry x:Name="Etr_Direction" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Entry x:Name="Etr_Direction" Text="{Binding Direction}" Grid.Row="2" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                 <Label Text="Od:" Grid.Row="3" Style="{StaticResource Lbl_Text}"/>
-                <DatePicker x:Name="DP_StartEducation" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
+                <DatePicker x:Name="DP_StartEducation" Date="{Binding StartPeriod}" TextColor="Black" Grid.Row="3" Grid.Column="1"/>
                 <Label Text="Do:" Grid.Row="4" Style="{StaticResource Lbl_Text}"/>
-                <DatePicker x:Name="DP_EndEducation" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
+                <DatePicker x:Name="DP_EndEducation" Date="{Binding EndPeriod}" TextColor="Black" Grid.Row="4" Grid.Column="1"/>
                 <Button x:Name="Btn_Cancel_Education" Text="Annuluj" Grid.Row="6" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>
                 <Button x:Name="Btn_Add_Education" Text="Dodaj" Grid.Row="6" BackgroundColor="#e8e8e8" Grid.Column="1" Style="{StaticResource Btn_Edit}" Clicked="Btn_Update_Clicked"/>
             </Grid>
@@ -82,7 +82,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Nazwa języka:"  Style="{StaticResource Lbl_Text}"/>
-                <Entry x:Name="Etr_LanguageName" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Entry x:Name="Etr_LanguageName" Text="{Binding Name}" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                 <Label Text="Poziom :" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
                 <Picker x:Name="Pck_LanguageLevel" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                 <Button x:Name="Btn_Cancel_Language" Text="Annuluj" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>
@@ -98,7 +98,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Adres URL:"  Style="{StaticResource Lbl_Text}"/>
-                <Entry x:Name="Etr_URL" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
+                <Entry x:Name="Etr_URL" Text="{Binding Name}" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                 <Label Text="Type linku :" Grid.Row="1"  Style="{StaticResource Lbl_Text}"/>
                 <Picker x:Name="Pck_LinkType" Grid.Row="1" Grid.Column="1" Style="{StaticResource Etry_Text}"/>
                 <Button x:Name="Btn_Cancel_Link" Text="Annuluj" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_Cancel_Clicked"/>

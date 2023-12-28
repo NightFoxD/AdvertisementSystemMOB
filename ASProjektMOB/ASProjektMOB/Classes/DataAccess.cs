@@ -1,4 +1,5 @@
-﻿using ASProjektWPF.Classes;
+﻿using ASProjektMOB.Models;
+using ASProjektWPF.Classes;
 using ASProjektWPF.Models;
 using SQLite;
 using System;
@@ -18,7 +19,7 @@ namespace AdvertisementSystem.Classes
         {
             _database = new SQLiteAsyncConnection(dbPath,true);
             _database.CreateTableAsync<Announcment>().Wait();
-            _database.CreateTableAsync<Application>().Wait();
+            _database.CreateTableAsync<MyApplication>().Wait();
             _database.CreateTableAsync<Category>().Wait();
             _database.CreateTableAsync<Company>().Wait();
             _database.CreateTableAsync<ContractType>().Wait();
@@ -56,28 +57,28 @@ namespace AdvertisementSystem.Classes
         {
             return _database.DeleteAsync(announcment).Result;
         }
-        //--------- Application ---------//
-        public List<Application> GetApplicationList()
+        //--------- MyApplication ---------//
+        public List<MyApplication> GetApplicationList()
         {
-            return _database.Table<Application>().ToListAsync().Result;
+            return _database.Table<MyApplication>().ToListAsync().Result;
         }
-        public List<Application> GetApplicationList(AnnouncmentItem announcment)
+        public List<MyApplication> GetApplicationList(AnnouncmentItem announcment)
         {
-            return _database.Table<Application>().Where(item => item.AnnouncmentID == announcment.AnnouncmentID).ToListAsync().Result;
+            return _database.Table<MyApplication>().Where(item => item.AnnouncmentID == announcment.AnnouncmentID).ToListAsync().Result;
         }
-        public List<Application> GetApplicationList(User user)
+        public List<MyApplication> GetApplicationList(User user)
         {
-            return _database.Table<Application>().Where(item => item.UserID == user.UserID).ToListAsync().Result;
+            return _database.Table<MyApplication>().Where(item => item.UserID == user.UserID).ToListAsync().Result;
         }
-        public int Add_Application(Application application)
+        public int Add_Application(MyApplication application)
         {
             return _database.InsertAsync(application).Result;
         }
-        public int Update_Application(Application application)
+        public int Update_Application(MyApplication application)
         {
             return _database.UpdateAsync(application).Result;
         }
-        public int Delete_Application(Application application)
+        public int Delete_Application(MyApplication application)
         {
             return _database.DeleteAsync(application).Result;
         }
@@ -196,9 +197,9 @@ namespace AdvertisementSystem.Classes
             education.UserID = user.UserID;
             return _database.InsertAsync(education).Result;
         }
-        public Task Update_Education(Education education)
+        public int Update_Education(Education education)
         {
-            return _database.UpdateAsync(education);
+            return _database.UpdateAsync(education).Result;
         }
         public int Delete_Education(Education education)
         {

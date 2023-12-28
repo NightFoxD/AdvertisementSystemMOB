@@ -15,7 +15,10 @@ namespace ASProjektMOB.Views
 	public partial class Edit_ProfileItemPage : ContentPage
 	{
         object Item;
-		public Edit_ProfileItemPage (object updateItem)
+        List<string> Level = new List<string>() { "podstawowe", "wyższe" };
+        List<string> LanguageLevel = new List<string>() { "podstawowe", "wyższe", "ojczysty" };
+        List<string> Links = new List<string>() { "GitHub", "Facebook" };
+        public Edit_ProfileItemPage (object updateItem)
 		{
 			InitializeComponent ();
             if (updateItem.GetType() == typeof(Experience))
@@ -28,18 +31,24 @@ namespace ASProjektMOB.Views
             {
                 Item = (Education)updateItem;
                 G_Education.BindingContext = ((Education)Item);
+                Pck_Level.ItemsSource = Level;
+                Pck_Level.SelectedItem = ((Education)Item).Level;
                 G_Education.IsVisible = true;
             }
             else if (updateItem.GetType() == typeof(Language))
             {
                 Item = (Language)updateItem;
                 G_Language.BindingContext = ((Language)Item);
+                Pck_LanguageLevel.ItemsSource = LanguageLevel;
+                Pck_LanguageLevel.SelectedItem = ((Language)Item).Level;
                 G_Language.IsVisible = true;
             }
             else if (updateItem.GetType() == typeof(Link))
             {
                 Item = (Link)updateItem;
-                G_Link.BindingContext    = ((Link)Item);
+                G_Link.BindingContext = ((Link)Item);
+                Pck_LinkType.ItemsSource = Links;
+                Pck_LinkType.SelectedItem = ((Link)Item).Type;
                 G_Link.IsVisible = true;
             }
         }
@@ -75,7 +84,7 @@ namespace ASProjektMOB.Views
                 ((Education)Item).EndPeriod = DP_EndEducation.Date;
                 App.DataAccess.Update_Education((Education)Item);
             }
-            else if (Item.GetType() == typeof(Experience))
+            else if (Item.GetType() == typeof(Language))
             {
                 ((Language)Item).Name = Etr_LanguageName.Text;
                 ((Language)Item).Level = Pck_LanguageLevel.Items[Pck_LanguageLevel.SelectedIndex];

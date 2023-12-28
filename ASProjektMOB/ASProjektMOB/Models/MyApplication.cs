@@ -1,9 +1,11 @@
 ﻿using SQLite;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace ASProjektWPF.Models
+namespace ASProjektMOB.Models
 {
-    public class Application
+    public class MyApplication
     {
         [PrimaryKey, AutoIncrement]
         public int ApplicationID { get; set; }
