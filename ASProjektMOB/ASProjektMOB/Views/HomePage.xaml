@@ -7,13 +7,15 @@
         <ScrollView>
             <StackLayout>
                 <Label Text="Strefa ofert" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
-                <CarouselView x:Name="CV_Announcments">
-                    <CarouselView.ItemTemplate>
+                <ListView x:Name="LV_Announcments" RowHeight="50">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            
+                            <ViewCell>
+                                <Button Text="{Binding Name}" Clicked="GoToAnnouncment" CommandParameter="{Binding .}" />
+                            </ViewCell>
                         </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Button Text="Zobacz więcej" HorizontalOptions="Center" Clicked="Btn_More_Announcments_Click"/>
                 <Label Text="Pracodawcy których warto znać" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
                 <CarouselView x:Name="CV_Comapnies">

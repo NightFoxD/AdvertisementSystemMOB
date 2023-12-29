@@ -18,9 +18,9 @@ namespace ASProjektWPF.Classes
         public Announcment Announcment { get; set; }
         public int CompanyID { get; set; }
         public string CompanyName { get; set; }
-        public ImageSource CompanyImage { get; set; }
+        public string CompanyImage { get; set; }
         public Company Company { get; set; }
-        public List<CheckedItem> CategoryID = new List<CheckedItem>() { };
+        public string CategoryID { get ;set;}
         public string Name { get; set; }
         public string    Description { get; set; }
         public string PositionName { get; set; }
@@ -40,25 +40,7 @@ namespace ASProjektWPF.Classes
             AnnouncmentID = item.AnnouncmentID;
             Announcment = item;
             CompanyID = item.CompanyID;
-            int[] selectedCategories = { };
-            if (item.CategoryID != null && item.CategoryID != "")
-            {
-                selectedCategories = item.CategoryID.Split(';').Select(int.Parse).ToArray();
-            }
-            foreach (Category category in App.DataAccess.GetCategoryList())
-            {
-                CheckedItem itemCheckedItem = new CheckedItem();
-                if (category.Name != null)
-                {
-                    if (selectedCategories.Contains(category.CategoryID))
-                    {
-                        itemCheckedItem.Name = category.Name;
-                        itemCheckedItem.ID = category.CategoryID;
-                        itemCheckedItem.Checked = true;
-                    }
-                }
-                CategoryID.Add(itemCheckedItem);
-            }
+            CategoryID = item.CategoryID;
             Name = item.Name;
             Description = item.Description;
             PositionName = item.PositionName;
@@ -96,28 +78,9 @@ namespace ASProjektWPF.Classes
             }
             
             City = item.City;
-            CompanyName = App.DataAccess.GetCompanyFromID(item.CompanyID).Name;
             Company = App.DataAccess.GetCompanyFromID(item.CompanyID);
-            ImageSource pfp;
-
-            if (Company.CompanyImage == null)
-            {
-                pfp = new ImageSourceConverter().ConvertFromInvariantString("../../../Images/App/DefaultCompany.png") as ImageSource;
-            }
-            else
-            {
-                if (!File.Exists("../../../Images/Uploads/" + Company.CompanyImage))
-                {
-                    pfp = new ImageSourceConverter().ConvertFromInvariantString("../../../Images/App/DefaultCompany.png") as ImageSource;
-                }
-                else
-                {
-                    pfp = new ImageSourceConverter().ConvertFromInvariantString("../../../Images/Uploads/" + Company.CompanyImage) as ImageSource;
-                }
-
-            }
-            CompanyImage = pfp;
-
+            CompanyName = Company.Name;
+            CompanyImage = Company.CompanyImage;
         }
     }
 }

@@ -57,6 +57,15 @@ namespace ASProjektMOB.Views
                 }
 
             }
+            if(item.CompanyImage == null)
+            {
+                I_ComapnyImage.Source = "icon_default_company";
+            }
+            else
+            {
+                I_ComapnyImage.Source = ImageSource.FromFile(item.CompanyImage);
+            }
+            
         }
         public AnnouncmentPage(Announcment announcment)
         {

@@ -18,6 +18,7 @@ namespace ASProjektMOB.Views
     public partial class ProfilePage : ContentPage
     {
         User User;
+        string tempImage;
         List<string> countries = new List<string>();
         List<string> Level = new List<string>() { "podstawowe", "wyższe" };
         List<string> LanguageLevel = new List<string>() { "podstawowe", "wyższe", "ojczysty" };
@@ -35,6 +36,14 @@ namespace ASProjektMOB.Views
             Pck_Level.ItemsSource = Level;
             Pck_LanguageLevel.ItemsSource = LanguageLevel;
             Pck_LinkType.ItemsSource = Links;
+            if (User.Pfp == null)
+            {
+                I_UserPfp.Source = "icon_default_company";
+            }
+            else
+            {
+                I_UserPfp.Source = ImageSource.FromFile(User.Pfp);
+            }
             Initialize_UserData();
             UserDataFormVisibility(false);
             Initialize_ContactData();
@@ -75,6 +84,11 @@ namespace ASProjektMOB.Views
             Lbl_CurrentOccupation.Text = User.CurrentOccupation;
             Lbl_Country.Text = User.Country;
             Lbl_City.Text = User.City;
+            if(User.Pfp != null)
+            {
+                I_UserPfp.Source = ImageSource.FromFile(User.Pfp);
+            }
+            
             Etr_Name.Text = User.Name;
             Etr_Surname.Text = User.Surname;
             Etr_CurrentOccupation.Text = User.CurrentOccupation;
@@ -95,6 +109,7 @@ namespace ASProjektMOB.Views
             Etr_City.IsVisible = vis;
             Btn_Cancel_UserData.IsVisible = vis;
             Btn_Save_UserData.IsVisible = vis;
+            Btn_EditPfp.IsVisible = vis;
         }
         private void Btn_Edit_UserData_Clicked(object sender, EventArgs e)
         {
@@ -118,6 +133,7 @@ namespace ASProjektMOB.Views
             User.CurrentOccupation = Etr_CurrentOccupation.Text;
             User.Country = Pckr_Country.Items[Pckr_Country.SelectedIndex];
             User.City = Etr_City.Text;
+            User.Pfp = tempImage;
             App.DataAccess.UpdateUser(User);
             User = App.DataAccess.GetUser(User);
             Initialize_UserData();
@@ -460,6 +476,16 @@ namespace ASProjektMOB.Views
                 }
             }
             Refresh_UserApplication();
+        }
+
+        private async void Btn_EditPfp_Click(object sender, EventArgs e)
+        {
+            var result = await Xamarin.Essentials.MediaPicker.PickPhotoAsync();
+            if (result != null)
+            {
+                tempImage = result.FullPath;
+                I_UserPfp.Source = ImageSource.FromFile(result.FullPath);
+            }
         }
     }
 }

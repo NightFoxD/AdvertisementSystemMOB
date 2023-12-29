@@ -43,9 +43,14 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Frame BackgroundColor="Transparent" Padding="0" CornerRadius="15" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start">
-                        <Image Source="icon_defaultpfp.png"/>
-                    </Frame>
+                    <StackLayout>
+                        <Frame BackgroundColor="Transparent" Padding="0" CornerRadius="15" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start">
+                            <Image x:Name="I_UserPfp" Source="icon_defaultpfp.png"/>
+                        </Frame>
+                        <Button x:Name="Btn_EditPfp" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Text="Edytuj zdjęcie" Clicked="Btn_EditPfp_Click" IsVisible="false"/>
+                    </StackLayout>
+                    
+                   
                 </Grid>
                 <Frame Grid.Row="1" BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,0,20,0">
                     <Grid>

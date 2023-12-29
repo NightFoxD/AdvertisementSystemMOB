@@ -37,7 +37,12 @@ namespace ASProjektMOB
         }
         public void Initialize()
         {
+            
             NavigationPage HomePage = new NavigationPage(new HomePage());
+            if(User != null)
+            {
+                HomePage = new NavigationPage(new HomePage(User));
+            }
             HomePage.IconImageSource = "icon_home.png";
             HomePage.Title = "Strona główna";
             this.Children.Add(HomePage);
@@ -65,7 +70,7 @@ namespace ASProjektMOB
             }
             if(Company != null)
             {
-                NavigationPage CompanyPage = new NavigationPage(new CompanyPage());
+                NavigationPage CompanyPage = new NavigationPage(new CompanyPage(Company,true));
                 CompanyPage.IconImageSource = "icon_home.png";
                 CompanyPage.Title = "Firma";
                 this.Children.Add(CompanyPage);

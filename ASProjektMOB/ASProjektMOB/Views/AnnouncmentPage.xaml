@@ -72,7 +72,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
-                                        <Image Source="icon_pin.png" Height="40"/>
+                                        <Image Source="icon_pin.png" />
                                     </Frame>
                                     <Label x:Name="Lbl_Adress" Grid.Column="1" FontSize="15" VerticalOptions="Center"/>
                                 </Grid>
@@ -85,7 +85,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
-                                        <Image Source="icon_time.png" Height="40"/>
+                                        <Image Source="icon_time.png"/>
                                     </Frame>
                                     <Label x:Name="Lbl_EndDate" Grid.Column="1" FontSize="15"/>
                                 </Grid>
@@ -98,7 +98,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame BackgroundColor="Transparent" Background="#dadada" CornerRadius="5" Margin="5" Padding="5">
-                                        <Image Source="icon_docs.png" Height="40"/>
+                                        <Image Source="icon_docs.png"/>
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
                                         <Label x:Name="Lbl_Position" FontSize="15"/>
@@ -113,7 +113,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
-                                        <Image Source="icon_clock.png" Height="40"/>
+                                        <Image Source="icon_clock.png"/>
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
                                         <Label x:Name="Lbl_WorkTime" FontSize="15"/>
@@ -128,7 +128,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
-                                        <Image Source="icon_position.png" Height="40"/>
+                                        <Image Source="icon_position.png" />
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
                                         <Label x:Name="Lbl_PositionLevel" FontSize="15"/>
@@ -143,7 +143,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
-                                        <Image Source="icon_work.png" Height="40"/>
+                                        <Image Source="icon_work.png"/>
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
                                         <Label x:Name="Lbl_WorkType" FontSize="15"/>
@@ -158,7 +158,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
-                                        <Image Source="icon_recruitment.png" Height="40"/>
+                                        <Image Source="icon_recruitment.png" />
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
                                         <Label Text="rekrutacja zdalna" FontSize="15"/>
@@ -194,7 +194,7 @@
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="auto"/>
                                                         </Grid.RowDefinitions>
-                                                        <Image Source="icon_checkmark.png"  Margin="10" Height="40"/>
+                                                        <Image Source="icon_checkmark.png"  Margin="10" />
                                                         <Label Grid.Column="1" Text="{Binding Content}" VerticalOptions="Center"/>
                                                     </Grid>
                                                 </Frame>
@@ -232,7 +232,7 @@
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="auto"/>
                                                         </Grid.RowDefinitions>
-                                                        <Image Source="icon_checkmark.png" Margin="10" Height="40"/>
+                                                        <Image Source="icon_checkmark.png" Margin="10"/>
                                                         <Label Grid.Column="1" Text="{Binding Content}" />
                                                     </Grid>
                                                 </Frame>
