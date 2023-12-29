@@ -3,14 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.AdminPanelPage"
              NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Button Text="Dodaj kategorię"/>
-                <Button Text="Dodaj poziom stanowiska"/>
-                <Button Text="Dodaj rodzaj umowy"/>
-                <Button Text="Dodaj wymiar pracy"/>
-                <Button Text="Dodaj tryb pracy"/>
+                <Button x:Name="Btn_Add_Category" Text="Dodaj kategorię" BackgroundColor="#e8e8e8 " Margin="10,30,10,10" Clicked="Btn_Add_Category_Clicked" Style="{StaticResource Btn_Edit}"/>
+                <Button x:Name="Btn_Add_PositionLevel" Text="Dodaj poziom stanowiska" BackgroundColor="#e8e8e8" Clicked="Btn_Add_PositionLevel_Clicked" Style="{StaticResource Btn_Edit}"/>
+                <Button x:Name="Btn_Add_ContractType" Text="Dodaj rodzaj umowy" BackgroundColor="#e8e8e8" Clicked="Btn_Add_ContractType_Clicked" Style="{StaticResource Btn_Edit}"/>
+                <Button x:Name="Btn_Add_WorkTime" Text="Dodaj wymiar pracy" BackgroundColor="#e8e8e8" Clicked="Btn_Add_WorkTime_Clicked" Style="{StaticResource Btn_Edit}"/>
+                <Button x:Name="Btn_Add_WorkType" Text="Dodaj tryb pracy" BackgroundColor="#e8e8e8" Clicked="Btn_Add_WorkType_Clicked" Style="{StaticResource Btn_Edit}"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

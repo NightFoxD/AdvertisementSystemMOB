@@ -3,13 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.CompanyPanelPage"
              NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Button Text="Dodaj ogłoszenie"/>
-                <Button Text="Edytuj ogłoszenie"/>
+                <Button x:Name="Btn_Add_Adnnouncment" Text="Dodaj ogłoszenie" Background="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10,30,10,10" Clicked="Btn_Add_Adnnouncment_Clicked"/>
+                <Button x:Name="Btn_Edit_Adnnouncment" Text="Edytuj ogłoszenie" Background="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10,30,10,10" Clicked="Btn_Edit_Adnnouncment_Clicked"/>
+                <Button x:Name="Btn_Applications" Text="Zaaplikowani" Background="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="10,30,10,10" Clicked="Btn_Applications_Clicked"/>
             </StackLayout>
-            
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -2,13 +2,146 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.AddEdit_AnnouncmentPage"
-             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False"
+             
              >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Nazwa Ogłoszenia"  VerticalOptions="Center"/>
+                    <Entry x:Name="Etr_Name" Grid.Column="1" VerticalOptions="Center"/>
+                    <Label Grid.Row="1" Text="Pozycja: " VerticalOptions="Center"/>
+                    <Entry x:Name="Etr_PositionName"  Grid.Column="1" Grid.Row="1"  VerticalOptions="Center"/>
+                    <Label Grid.Row="2" Text="Poziom stanowiska: "  VerticalOptions="Center" />
+                    <Picker x:Name="Pck_PositionLevel" Grid.Column="1" Grid.Row="2"  SelectedIndex="0"/>
+                    <Label Grid.Row="3" Text="Rodzaj umowy: " VerticalOptions="Center" />
+                    <Picker x:Name="Pck_ContractType" Grid.Column="1" Grid.Row="3" SelectedIndex="0"/>
+                    <Label Grid.Row="4" Text="Wymiar pracy: "  VerticalOptions="Center"/>
+                    <Picker x:Name="Pck_WorkType" Grid.Column="1" Grid.Row="4"  SelectedIndex="0"/>
+                    <Label Grid.Row="5" Text="Tryb pracy: "  VerticalOptions="Center" />
+                    <Picker x:Name="Pck_WorkTime" Grid.Column="1" Grid.Row="5" SelectedIndex="0"/>
+                    <StackLayout  Grid.Row="7" Grid.ColumnSpan="2" >
+                        <StackLayout>
+                            <Label Text="Obowiązki: "/>
+                            <ListView x:Name="LV_Responsibilities" SelectionMode="None" Background="Transparent" RowHeight="80">
+                               
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame BackgroundColor="#e8e8e8" Padding="5" Margin="5">
+                                                <Grid Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding Content}" TextColor="Black" VerticalOptions="Center"/>
+                                                    <Button Grid.Column="1" Text="Usuń"   CommandParameter="{Binding .}" Clicked="Btn_DelResponsibilityItem_Click"/>
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                        
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Label Text="Nazwa obowiązku: "/>
+                            <Entry x:Name="Etr_Responsibility_Content"/>
+                            <Button x:Name="Btn_AddResponsible" Text="Dodaj obowiązek" Clicked="Btn_AddResponsible_Clicked"/>
+                        </StackLayout>
+                        <Label Text="Wymagania: "/>
+                        <StackLayout>
+                            <ListView x:Name="LV_Requirements" RowHeight="80">
+                               
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame BackgroundColor="#e8e8e8" Padding="5" Margin="5">
+                                                <Grid Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding Content}" TextColor="Black" VerticalOptions="Center"/>
+                                                    <Button Grid.Column="1" Text="Usuń" CommandParameter="{Binding .}" Clicked="Btn_DelRequirementsItem_Click"/>
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Label Text="Nazwa wymagania: "/>
+                            <Entry x:Name="Etr_Requirement_Content"/>
+                            <Button x:Name="Btn_AddRequirement" Text="Dodaj Wymaganie" Clicked="Btn_AddRequriement_Clicked"/>
+                        </StackLayout>
+                        <Label Text="Benefity: "/>
+                        <StackLayout>
+                            <ListView x:Name="LV_Benefits" RowHeight="80">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <Frame Padding="5" Margin="5" BackgroundColor="#e8e8e8">
+                                                <Grid Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Text="{Binding Content}" TextColor="Black" VerticalOptions="Center"/>
+                                                    <Button Grid.Column="1" Text="Usuń" CommandParameter="{Binding .}" Clicked="Btn_DelBenefitItem_Click"/>
+                                                </Grid>
+                                            </Frame>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Label Text="Nazwa benefitu: "/>
+                            <Entry x:Name="Etr_Benefit_Content"/>
+                            <Button x:Name="Btn_AddBenefit" Text="Dodaj Benefity" Clicked="Btn_AddBenefit_Clicked"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Grid.Row="8" Grid.ColumnSpan="2" Margin="10">
+                        <Label Text="Opis ogłoszenia: "/>
+                        <Entry x:Name="Etr_Description"  Margin="10"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="9" Grid.ColumnSpan="2" Margin="10" Orientation="Horizontal">
+                        <Label Text="Zakończenie ogłoszenia: " Margin="10"/>
+                        <DatePicker x:Name="DP_EndDate" Margin="10"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="10" Grid.ColumnSpan="2" Margin="10">
+                        <Label Text="Nazwa miasta: " Margin="10"/>
+                        <Entry x:Name="Etr_City" Margin="10"/>
+                    </StackLayout>
+                    <Label Text="Kategoria" Grid.Row="11" VerticalOptions="Center"/>
+                    <Picker x:Name="Pck_Category" Grid.Row="11" Grid.Column="1"/>
+                </Grid>
+
+                <Button Grid.Row="1" x:Name="Btn_AddUpdateAnnouncment" Clicked="Btn_AddUpdateAnnouncment_Clicked"/>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

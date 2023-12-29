@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ASProjektMOB.Views.Add_CategoryPage"
+             BackgroundColor="#e0e0e0"
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="Lbl_Text">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+        <Style TargetType="Entry" x:Key="Etry_Text">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="PlaceholderColor" Value="Gray"/>
+        </Style>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="Lbl_CategoryName" Margin="10" FontSize="20" Style="{StaticResource Lbl_Text}"/>
+            <Entry x:Name="Text_Item_Content" Placeholder="Nazwa" Margin="10" Style="{StaticResource Etry_Text}"/>
+            <Button x:Name="Btn_AddCategory" Text="Dodaj" Clicked="Btn_AddCategory_Clicked" BackgroundColor="#e8e8e8" Margin="10" Style="{StaticResource Btn_Edit}"/>
+            <ListView x:Name="LV_Items" RowHeight="50">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" Margin="10,0,0,0" FontSize="18" Style="{StaticResource Lbl_Text}"/>
+                                <Button x:Name="Del_Category" Grid.Column="1" Text="Usuń" CommandParameter="{Binding .}" Clicked="Del_Category_Clicked" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

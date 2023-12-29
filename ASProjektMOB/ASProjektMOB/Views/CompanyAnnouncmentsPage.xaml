@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ASProjektMOB.Views.CompanyAnnouncmentsPage">
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Lbl_Text">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Ogłoszenia firmy"/>
+            <ListView x:Name="LV_Announcments" Grid.Row="50">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Name}" Style="{StaticResource Lbl_Text}" VerticalOptions="Center"/>
+                                <Button x:Name="Btn_DelAnnouncment" Grid.Column="1" Text="Usuń" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_DelAnnouncment_Clicked" CommandParameter="{Binding .}"/>
+                                <Button x:Name="Btn_EditAnnouncment" Grid.Column="2" Text="Edytuj" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_EditAnnouncment_Clicked" CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

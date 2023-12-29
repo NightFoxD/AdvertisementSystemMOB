@@ -50,7 +50,7 @@ namespace ASProjektMOB
             }
             if (Company != null)
             {
-                NavigationPage CompanyPanelPage = new NavigationPage(new CompanyPanelPage());
+                NavigationPage CompanyPanelPage = new NavigationPage(new CompanyPanelPage(Company));
                 CompanyPanelPage.IconImageSource = "icon_home.png";
                 CompanyPanelPage.Title = "Panel";
                 this.Children.Add(CompanyPanelPage);
