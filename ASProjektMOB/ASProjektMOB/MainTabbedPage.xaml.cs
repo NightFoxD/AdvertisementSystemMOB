@@ -47,14 +47,14 @@ namespace ASProjektMOB
             if(User != null && User.AccountTypeID == 2 ) 
             {
                 NavigationPage AdminPanelPage = new NavigationPage(new AdminPanelPage());
-                AdminPanelPage.IconImageSource = "icon_home.png";
+                AdminPanelPage.IconImageSource = "icon_adminpanel.png";
                 AdminPanelPage.Title = "Panel";
                 this.Children.Add(AdminPanelPage);
             }
             if (Company != null)
             {
                 NavigationPage CompanyPanelPage = new NavigationPage(new CompanyPanelPage(Company));
-                CompanyPanelPage.IconImageSource = "icon_home.png";
+                CompanyPanelPage.IconImageSource = "icon_companysettings.png";
                 CompanyPanelPage.Title = "Panel";
                 this.Children.Add(CompanyPanelPage);
             }
@@ -69,7 +69,7 @@ namespace ASProjektMOB
             if(Company != null)
             {
                 NavigationPage CompanyPage = new NavigationPage(new CompanyPage(Company,true));
-                CompanyPage.IconImageSource = "icon_home.png";
+                CompanyPage.IconImageSource = "icon_companyprofile.png";
                 CompanyPage.Title = "Firma";
                 this.Children.Add(CompanyPage);
             }

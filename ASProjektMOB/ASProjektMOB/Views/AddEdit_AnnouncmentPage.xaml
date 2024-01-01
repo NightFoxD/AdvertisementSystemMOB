@@ -4,13 +4,20 @@
              x:Class="ASProjektMOB.Views.AddEdit_AnnouncmentPage"
              
              >
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Look">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <Grid HorizontalOptions="Center" VerticalOptions="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -72,7 +79,7 @@
                             </ListView>
                             <Label Text="Nazwa obowiązku: "/>
                             <Entry x:Name="Etr_Responsibility_Content"/>
-                            <Button x:Name="Btn_AddResponsible" Text="Dodaj obowiązek" Clicked="Btn_AddResponsible_Clicked"/>
+                            <Button x:Name="Btn_AddResponsible" Text="Dodaj obowiązek" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Look}" Clicked="Btn_AddResponsible_Clicked"/>
                         </StackLayout>
                         <Label Text="Wymagania: "/>
                         <StackLayout>
@@ -97,7 +104,7 @@
                             </ListView>
                             <Label Text="Nazwa wymagania: "/>
                             <Entry x:Name="Etr_Requirement_Content"/>
-                            <Button x:Name="Btn_AddRequirement" Text="Dodaj Wymaganie" Clicked="Btn_AddRequriement_Clicked"/>
+                            <Button x:Name="Btn_AddRequirement" Text="Dodaj Wymaganie" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Look}" Clicked="Btn_AddRequriement_Clicked"/>
                         </StackLayout>
                         <Label Text="Benefity: "/>
                         <StackLayout>
@@ -121,7 +128,7 @@
                             </ListView>
                             <Label Text="Nazwa benefitu: "/>
                             <Entry x:Name="Etr_Benefit_Content"/>
-                            <Button x:Name="Btn_AddBenefit" Text="Dodaj Benefity" Clicked="Btn_AddBenefit_Clicked"/>
+                            <Button x:Name="Btn_AddBenefit" Text="Dodaj Benefity" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Look}" Clicked="Btn_AddBenefit_Clicked"/>
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Grid.Row="8" Grid.ColumnSpan="2" Margin="10">
@@ -140,7 +147,7 @@
                     <Picker x:Name="Pck_Category" Grid.Row="11" Grid.Column="1"/>
                 </Grid>
 
-                <Button Grid.Row="1" x:Name="Btn_AddUpdateAnnouncment" Clicked="Btn_AddUpdateAnnouncment_Clicked"/>
+                <Button Grid.Row="1" x:Name="Btn_AddUpdateAnnouncment" BackgroundColor="#e8e8e8" Margin="0,0,0,40" Style="{StaticResource Btn_Look}" Clicked="Btn_AddUpdateAnnouncment_Clicked"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
