@@ -91,12 +91,12 @@ namespace ASProjektMOB.Views
             {
                 if (!CustomValidations.IsCorrectTextAndNumbers(Etr_Password_2.Text))
                 {
-                    DisplayAlert("Error", "5Hasło powinno zawierać tylko litery oraz liczby", "OK");
+                    DisplayAlert("Error", "Hasło powinno zawierać tylko litery oraz liczby", "OK");
                     return;
                 }
                 if(Etr_Password_1.Text != Etr_Password_2.Text)
                 {
-                    DisplayAlert("Error", "6Hasła są niepoprawne", "OK");
+                    DisplayAlert("Error", "Hasła są niepoprawne", "OK");
                     return;
                 }
                 if (!Stch_Company.IsToggled)
