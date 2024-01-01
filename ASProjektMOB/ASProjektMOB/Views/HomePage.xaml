@@ -2,29 +2,71 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.HomePage"
-             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#e8e8e8"
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Look">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout>
-                <Label Text="Strefa ofert" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
-                <ListView x:Name="LV_Announcments" RowHeight="50">
+            <StackLayout Margin="10,80,10,10">
+                <Label Text="Strefa ofert" TextColor="Black" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
+                <ListView x:Name="LV_Announcments" RowHeight="220" SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Button Text="{Binding Name}" Clicked="GoToAnnouncment" CommandParameter="{Binding .}" />
+                                <Frame CornerRadius="10" BorderColor="Black" Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="50"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding Name}" Grid.ColumnSpan="2" Margin="10" TextColor="Black"/>
+                                        <Image Source="{Binding CompanyImage}" Grid.Row="1" Aspect="Fill"/>
+                                        <StackLayout Grid.Column="1" Grid.Row="1">
+                                            <Label Text="{Binding PositionName}" TextColor="Black" MaxLines="1" LineBreakMode="TailTruncation" FontSize="15"/>
+                                            <Label Text="{Binding City}" FontSize="10" TextColor="Black"/>
+                                        </StackLayout>
+                                        <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="10"  Text="Zobacz" CommandParameter="{Binding .}" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Look}" Clicked="GoToAnnouncment"/>
+                                    </Grid>
+                                </Frame>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Zobacz więcej" HorizontalOptions="Center" Clicked="Btn_More_Announcments_Click"/>
-                <Label Text="Pracodawcy których warto znać" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold"/>
-                <CarouselView x:Name="CV_Comapnies">
-                    <CarouselView.ItemTemplate>
+                <Label Text="Pracodawcy których warto znać" HorizontalOptions="Center" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                <ListView  x:Name="CV_Comapnies" RowHeight="270" SelectionMode="None">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-
+                            <ViewCell>
+                                <Frame Padding="5" BorderColor="Black" BackgroundColor="#e8e8e8" Margin="10">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="150"/>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="50"/>
+                                        </Grid.RowDefinitions>
+                                        <Frame Padding="5" Margin="10" BackgroundColor="Transparent">
+                                            <Image Source="{Binding CompanyImage}" Aspect="AspectFill"/>
+                                        </Frame>
+                                        <Label Text="{Binding Name}" Grid.Row="1" TextColor="Black"/>
+                                        <Button Text="Zobacz" Grid.Row="2" CommandParameter="{Binding .}" Clicked="Btn_CopanyLook_Clicked" Style="{StaticResource Btn_Look}" BackgroundColor="#e8e8e8"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
                         </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -3,11 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.SettingsPage"
              NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView Margin="10,30,10,20">
             <StackLayout Orientation="Vertical" >
-                <Button x:Name="Btn_Settings" Grid.Row="2" Text="Ustawienia" Clicked="Btn_Settings_Clicked"/>
-                <Button x:Name="Btn_LogOut" Grid.Row="3" Text="Wyloguj się" Clicked="Btn_LogOut_Clicked"/>
+                <Button x:Name="Btn_Settings" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Text="Ustawienia" Clicked="Btn_Settings_Clicked"/>
+                <Button x:Name="Btn_LogOut" Grid.Row="3" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Text="Wyloguj się" Clicked="Btn_LogOut_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

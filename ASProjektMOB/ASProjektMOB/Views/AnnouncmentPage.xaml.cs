@@ -40,7 +40,7 @@ namespace ASProjektMOB.Views
             if (App.DataAccess.GetApplicationList().Where(item => item.AnnouncmentID == announcment.AnnouncmentID).Any())
             {
                 int? id = App.DataAccess.GetApplicationList().Where(item => item.AnnouncmentID == announcment.AnnouncmentID).First().UserID;
-                if (id != null && id == user.UserDataID)
+                if (id != null && id == user.UserID)
                 {
                     Btn_Application.IsVisible = false;
                 }
@@ -92,7 +92,7 @@ namespace ASProjektMOB.Views
             {
                 MyApplication item = new MyApplication();
                 item.AnnouncmentID = this.item.AnnouncmentID;
-                item.UserID = User.UserDataID;
+                item.UserID = User.UserID;
                 App.DataAccess.Add_Application(item);
                 DisplayAlert("Powiadomienie","Zaaplikowałeś się do ogłoszenia!","OK");
                 Btn_Application.IsVisible = false;

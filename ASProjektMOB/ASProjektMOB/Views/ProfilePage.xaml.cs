@@ -23,6 +23,11 @@ namespace ASProjektMOB.Views
         List<string> Level = new List<string>() { "podstawowe", "wyższe" };
         List<string> LanguageLevel = new List<string>() { "podstawowe", "wyższe", "ojczysty" };
         List<string> Links = new List<string>() { "GitHub", "Facebook" };
+        public ProfilePage()
+        { 
+            InitializeComponent();
+            
+        }
         public ProfilePage(User user)
         {
             InitializeComponent();
@@ -444,7 +449,7 @@ namespace ASProjektMOB.Views
                     }
                 }
             }
-            if(list.Count > 0)
+            if (list.Count > 0)
             {
                 LV_UserApplications.IsVisible = true;
                 LV_UserApplications.ItemsSource = list;
@@ -462,11 +467,11 @@ namespace ASProjektMOB.Views
                 Announcment itemAnnouncment = item.Announcment;
                 if (itemAnnouncment != null && User != null)
                 {
-                    List<MyApplication> list = App.DataAccess.GetApplicationList();
+                    List<MyApplication> list = App.DataAccess.GetApplicationList(User);
                     MyApplication application = new MyApplication();
                     foreach (var itemList in list)
                     {
-                        if (itemList.UserID == User.UserDataID && itemList.AnnouncmentID == itemAnnouncment.AnnouncmentID)
+                        if (itemList.UserID == User.UserID && itemList.AnnouncmentID == itemAnnouncment.AnnouncmentID)
                         {
                             application = itemList;
                             break;
@@ -477,7 +482,22 @@ namespace ASProjektMOB.Views
             }
             Refresh_UserApplication();
         }
-
+        private void GoToAnnouncment(object sender, EventArgs e)
+        {
+            AnnouncmentItem tmpItem = ((Button)sender).CommandParameter as AnnouncmentItem;
+            if (tmpItem != null)
+            {
+                Announcment item = tmpItem.Announcment;
+                if (item != null && User != null)
+                {
+                    Navigation.PushAsync(new AnnouncmentPage(User, item));
+                }
+                else if (item != null)
+                {
+                    Navigation.PushAsync(new AnnouncmentPage(item));
+                }
+            }
+        }
         private async void Btn_EditPfp_Click(object sender, EventArgs e)
         {
             var result = await Xamarin.Essentials.MediaPicker.PickPhotoAsync();
@@ -486,6 +506,11 @@ namespace ASProjektMOB.Views
                 tempImage = result.FullPath;
                 I_UserPfp.Source = ImageSource.FromFile(result.FullPath);
             }
+        }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            Refresh_UserApplication();
         }
     }
 }

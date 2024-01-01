@@ -41,12 +41,12 @@ namespace ASProjektMOB.Views
         {
             if (!CustomValidations.IsCorrectTextAndNumbers(Etr_Login.Text))
             {
-                DisplayAlert("Error", "1Login powinien zawierać tylko litery oraz liczby", "OK");
+                DisplayAlert("Error", "Login powinien zawierać tylko litery oraz liczby", "OK");
                 return;
             }
             if (!CustomValidations.IsCorrectTextAndNumbers(Etr_Password_1.Text))
             {
-                DisplayAlert("Error", "2Hasło powinno zawierać tylko litery oraz liczby", "OK");
+                DisplayAlert("Error", "Hasło powinno zawierać tylko litery oraz liczby", "OK");
                 return;
             }
             if (!FlagLoginRegister)
@@ -57,24 +57,33 @@ namespace ASProjektMOB.Views
                     User User = App.DataAccess.GetUser(Etr_Login.Text, HashPassword.Hash(Etr_Password_1.Text));
                     if (User != null)
                     {
+                        Etr_Login.Text = string.Empty;
+                        Etr_CompanyName.Text = string.Empty;
+                        Etr_Password_1.Text = string.Empty;
+                        Etr_Password_2.Text = string.Empty;
                         Navigation.PushAsync(new MainTabbedPage(User));
                     }
                     else
                     {
-                        DisplayAlert("3Error","Niepoprawy login lub hasło","ok");
+                        DisplayAlert("Error","Niepoprawy login lub hasło","ok");
                     }
                         
                 }
                 else
                 {
                     Company Company = App.DataAccess.GetCompany(Etr_Login.Text,HashPassword.Hash(Etr_Password_1.Text));
+                    
                     if (Company != null)
                     {
+                        Etr_Login.Text = string.Empty;
+                        Etr_CompanyName.Text = string.Empty;
+                        Etr_Password_1.Text = string.Empty;
+                        Etr_Password_2.Text = string.Empty;
                         Navigation.PushAsync(new MainTabbedPage(Company));
                     }
                     else
                     {
-                        DisplayAlert("4Error", "Niepoprawy login lub hasło", "ok");
+                        DisplayAlert("Error", "Niepoprawy login lub hasło", "ok");
                     }
                 }
             }
@@ -104,6 +113,10 @@ namespace ASProjektMOB.Views
                         User.AccountTypeID = 1;
                     }
                     App.DataAccess.InserUser(User);
+                    Etr_Login.Text = string.Empty;
+                    Etr_CompanyName.Text = string.Empty;
+                    Etr_Password_1.Text = string.Empty;
+                    Etr_Password_2.Text = string.Empty;
                     Navigation.PushAsync(new MainTabbedPage(User));
                 }
                 else
@@ -117,7 +130,12 @@ namespace ASProjektMOB.Views
                     Company.Login = Etr_Login.Text;
                     Company.Name = Etr_CompanyName.Text;
                     Company.Password = HashPassword.Hash(Etr_Password_1.Text);
+                    Company.CompanyImage = "icon_default_company.png";
                     App.DataAccess.Add_Company(Company);
+                    Etr_Login.Text = string.Empty;
+                    Etr_CompanyName.Text = string.Empty;
+                    Etr_Password_1.Text = string.Empty;
+                    Etr_Password_2.Text = string.Empty;
                     Navigation.PushAsync(new MainTabbedPage(Company));
                 }
                 

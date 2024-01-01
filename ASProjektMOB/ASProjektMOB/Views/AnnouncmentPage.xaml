@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.AnnouncmentPage"
-             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasBackButton="True" NavigationPage.HasNavigationBar="True"
+             Title="Strona ogłoszenia"
+             
+             BackgroundColor="#e0e0e0"
+             >
     <ContentPage.Resources>
         <Style TargetType="Label" x:Key="Lbl_Text">
             <Setter Property="TextColor" Value="Black"/>
@@ -34,17 +38,19 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Frame BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,0,20,0">
+                <Frame BackgroundColor="#b7b7b7" Padding="0" CornerRadius="15" Margin="20,50,20,0">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="100"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image x:Name="I_ComapnyImage" Source="{Binding CompanyImage}" VerticalOptions="Center" Margin="10"/>
+                        <Frame Padding="0" CornerRadius="15" Margin="10" BackgroundColor="Transparent">
+                            <Image x:Name="I_ComapnyImage" Source="{Binding CompanyImage}" Aspect="Fill" VerticalOptions="Center"/>
+                        </Frame>
                         <StackLayout Grid.Column="1" VerticalOptions="Center">
                             <Label x:Name="Lbl_Name" Text="{Binding Name}" VerticalOptions="Center" FontSize="40" FontAttributes="Bold"/>
                             <Label x:Name="Lbl_ComanyName" Text="{Binding CompanyName}" VerticalOptions="Center" FontSize="20"/>
@@ -65,7 +71,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0" Grid.Row="0">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="65"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="65"/>
@@ -74,11 +80,11 @@
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
                                         <Image Source="icon_pin.png" />
                                     </Frame>
-                                    <Label x:Name="Lbl_Adress" Grid.Column="1" FontSize="15" VerticalOptions="Center"/>
+                                    <Label x:Name="Lbl_Adress" TextColor="Black" MaxLines="3" LineBreakMode="TailTruncation" Grid.Column="1" FontSize="15" VerticalOptions="Center"/>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="0">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="65"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="65"/>
@@ -87,11 +93,11 @@
                                     <Frame BackgroundColor="#dadada" CornerRadius="5" Margin="5" Padding="5">
                                         <Image Source="icon_time.png"/>
                                     </Frame>
-                                    <Label x:Name="Lbl_EndDate" Grid.Column="1" FontSize="15"/>
+                                    <Label x:Name="Lbl_EndDate" TextColor="Black" MaxLines="3" LineBreakMode="TailTruncation"  Grid.Column="1" FontSize="15"/>
                                 </Grid>
                                 <Grid Grid.Column="0" Grid.Row="1">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="65"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="65"/>
@@ -101,12 +107,12 @@
                                         <Image Source="icon_docs.png"/>
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                        <Label x:Name="Lbl_Position" FontSize="15"/>
+                                        <Label x:Name="Lbl_Position" FontSize="15" TextColor="Black" MaxLines="3" LineBreakMode="TailTruncation"/>
                                     </StackLayout>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="1">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="65"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="65"/>
@@ -116,12 +122,12 @@
                                         <Image Source="icon_clock.png"/>
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                        <Label x:Name="Lbl_WorkTime" FontSize="15"/>
+                                        <Label x:Name="Lbl_WorkTime" TextColor="Black" MaxLines="3" LineBreakMode="TailTruncation" FontSize="15"/>
                                     </StackLayout>
                                 </Grid>
                                 <Grid Grid.Column="0" Grid.Row="2">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="65"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="65"/>
@@ -131,12 +137,12 @@
                                         <Image Source="icon_position.png" />
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                        <Label x:Name="Lbl_PositionLevel" FontSize="15"/>
+                                        <Label x:Name="Lbl_PositionLevel" FontSize="15" TextColor="Black" MaxLines="3" LineBreakMode="TailTruncation"/>
                                     </StackLayout>
                                 </Grid>
                                 <Grid Grid.Column="1" Grid.Row="2">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="65"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="65"/>
@@ -146,12 +152,12 @@
                                         <Image Source="icon_work.png"/>
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                        <Label x:Name="Lbl_WorkType" FontSize="15"/>
+                                        <Label x:Name="Lbl_WorkType" FontSize="15" TextColor="Black" MaxLines="3" LineBreakMode="TailTruncation"/>
                                     </StackLayout>
                                 </Grid>
                                 <Grid Grid.Column="0" Grid.Row="3">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="65"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="65"/>
@@ -161,7 +167,7 @@
                                         <Image Source="icon_recruitment.png" />
                                     </Frame>
                                     <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                        <Label Text="rekrutacja zdalna" FontSize="15"/>
+                                        <Label Text="rekrutacja zdalna" FontSize="15" TextColor="Black" MaxLines="3" LineBreakMode="TailTruncation"/>
                                     </StackLayout>
                                 </Grid>
                             </Grid>
@@ -179,9 +185,9 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Twój zakres obowiązków" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
-                        <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
+                        <Frame Grid.Row="1" BackgroundColor="#e8e8e8">
                             <StackLayout>
-                                <ListView SelectionMode="None" x:Name="LV_Responsibilities" RowHeight="160">
+                                <ListView SelectionMode="None" x:Name="LV_Responsibilities" RowHeight="100">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <ViewCell>
@@ -219,7 +225,7 @@
                         <Label Text="Nasze wymagania" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
                         <Frame Grid.Row="1" BackgroundColor="#e8e8e8">
                             <StackLayout>
-                                <ListView SelectionMode="None" x:Name="LV_Requirements" RowHeight="120">
+                                <ListView SelectionMode="None" x:Name="LV_Requirements" RowHeight="100">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <ViewCell>
@@ -233,7 +239,7 @@
                                                             <RowDefinition Height="auto"/>
                                                         </Grid.RowDefinitions>
                                                         <Image Source="icon_checkmark.png" Margin="10"/>
-                                                        <Label Grid.Column="1" Text="{Binding Content}" />
+                                                        <Label Grid.Column="1" Text="{Binding Content}" VerticalOptions="Center"/>
                                                     </Grid>
                                                 </Frame>
                                             </ViewCell>
@@ -258,14 +264,14 @@
                         
                         <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#e8e8e8">
                             <StackLayout>
-                                <ListView x:Name="LV_Benefits" RowHeight="75">
+                                <ListView x:Name="LV_Benefits" RowHeight="150" SelectionMode="None">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <ViewCell>
                                                 <Frame Padding="2" BackgroundColor="#b7b7b7" CornerRadius="15" Margin="0,10,0,0">
                                                     <Grid>
                                                         <Grid.RowDefinitions>
-                                                            <RowDefinition Height="*"/>
+                                                            <RowDefinition Height="80"/>
                                                             <RowDefinition Height="auto"/>
                                                         </Grid.RowDefinitions>
                                                         <Grid.ColumnDefinitions>
@@ -287,21 +293,20 @@
                     <Grid x:Name="G_Description">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Opis" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
-                        
                         <Frame Grid.Row="1" BackgroundColor="#e8e8e8">
                             <StackLayout>
-                                <Editor Text="{Binding Description}"/>
+                                <Label Text="{Binding Description}" TextColor="Black"/>
                             </StackLayout>
                         </Frame>
                     </Grid>
                 </Frame>
-                <Button x:Name="Btn_Application" Grid.Row="5" IsVisible="false" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="20,20,20,70" Clicked="Btn_Application_Clicked"/>
+                <Button x:Name="Btn_Application" Text="Zaaplikuj się" Grid.Row="5" IsVisible="false" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Margin="20,20,20,70" Clicked="Btn_Application_Clicked"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

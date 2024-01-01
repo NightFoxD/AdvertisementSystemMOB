@@ -26,14 +26,12 @@ namespace ASProjektMOB
             InitializeComponent();
             User = user;
             Initialize();
-            DisplayAlert("",user.Login + ", " + user.Password,"ok");
         }
         public MainTabbedPage(Company company)
         {
             InitializeComponent();
             Company = company;
             Initialize();
-            DisplayAlert("", company.Login + ", " + company.Password, "ok");
         }
         public void Initialize()
         {
@@ -75,6 +73,15 @@ namespace ASProjektMOB
                 CompanyPage.Title = "Firma";
                 this.Children.Add(CompanyPage);
             }
+            NavigationPage SearchPage = new NavigationPage(new SearchingPage());
+            if (User != null)
+            {
+                SearchPage = new NavigationPage(new SearchingPage(User));
+            }
+
+            SearchPage.IconImageSource = "icon_search.png";
+            SearchPage.Title = "Szukaj";
+            this.Children.Add(SearchPage);
             NavigationPage SettingsPage = new NavigationPage(new SettingsPage(this));
             SettingsPage.IconImageSource = "icon_settings.png";
             SettingsPage.Title = "Ustawienia";

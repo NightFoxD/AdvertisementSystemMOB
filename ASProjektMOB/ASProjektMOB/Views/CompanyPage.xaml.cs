@@ -36,6 +36,13 @@ namespace ASProjektMOB.Views
             Lbl_Company.Text = company.Name;
             Lbl_Adress.Text = company.Adress;
             Lbl_Email.Text = company.Email;
+            TxtB_CompanyEdit.Text = company.Name;
+            TxtB_Adress_Edit.Text = company.Adress;
+            TxtB_Email_Edit.Text = company.Email;
+            if (editFlag)
+            {
+                Btn_SaveEditedCompany.IsVisible = false;
+            }
             int count = App.DataAccess.GetAnnouncmentList(company).Count;
             if (count == 1)
             {
@@ -63,6 +70,7 @@ namespace ASProjektMOB.Views
                 Lbl_Email.IsVisible = true;
                 TxtB_Email_Edit.IsVisible = false;
                 Btn_EditCompanyPfp.IsVisible = false;
+                Btn_SaveEditedCompany.IsVisible = false;
                 Btn_EditCompany.Text = "Edytuj";
             }
             else
@@ -74,9 +82,9 @@ namespace ASProjektMOB.Views
                 Lbl_Email.IsVisible = false;
                 TxtB_Email_Edit.IsVisible = true;
                 Btn_EditCompanyPfp.IsVisible = true;
+                Btn_SaveEditedCompany.IsVisible = true;
                 Btn_EditCompany.Text = "Anuluj";
             }
-            Btn_SaveEditedCompany.IsVisible = true;
         }
 
         private void Btn_SaveEditedCompany_Clicked(object sender, EventArgs e)
@@ -86,7 +94,15 @@ namespace ASProjektMOB.Views
                 Company.Name = TxtB_CompanyEdit.Text;
                 Company.Adress = TxtB_Adress_Edit.Text;
                 Company.Email = TxtB_Email_Edit.Text;
-                Company.CompanyImage = tempImage;
+                
+                if(tempImage != null && Company.CompanyImage != null)
+                {
+                    Company.CompanyImage = tempImage;
+                }
+                else
+                {
+                    Company.CompanyImage = "icon_default_company.png";
+                }
                 App.DataAccess.Update_Company(Company);
                 Company = App.DataAccess.GetCompanyFromID(Company.CompanyID);
                 Lbl_Company.Text = Company.Name;
@@ -99,6 +115,7 @@ namespace ASProjektMOB.Views
                 Lbl_Email.IsVisible = true;
                 TxtB_Email_Edit.IsVisible = false;
                 Btn_EditCompanyPfp.IsVisible = false;
+                Btn_SaveEditedCompany.IsVisible = false;
                 Btn_EditCompany.Text = "Edytuj";
             }
         }

@@ -1,27 +1,107 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ASProjektMOB.Views.SearchingPage">
+             x:Class="ASProjektMOB.Views.SearchingPage"
+             BackgroundColor="#e8e8e8"
+             
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Look">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <StackLayout>
-                    <Entry x:Name="Etr_Name"/>
-                    <Picker x:Name="Pck_Category"/>
-                    <Picker x:Name="Pck_PositionLevel"/>
-                    <Picker x:Name="Pck_ContractType"/>
-                    <Picker x:Name="Pck_WorkingTime"/>
-                    <Picker x:Name="Pck_WorkType"/>
-                    <Entry x:Name="Etr_City"/>
-                    <Button Text="Szukaj"/>
-                </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Wyszukaj stanowisko:" Grid.ColumnSpan="2" TextColor="Black" Margin="10" FontSize="20"/>
+                        <Entry x:Name="Etr_Name" BackgroundColor="White" Margin="10" TextColor="Black" Grid.Row="1"/>
+                        <Button Text="FIltry" Grid.Column="1" Grid.Row="1" Margin="0,10,10,10" Clicked="Btn_Filters_Click" Style="{StaticResource Btn_Look}" BackgroundColor="#e8e8e8"/>
+                        <Frame Grid.ColumnSpan="2" Grid.Row="2" Padding="2" Margin="10" x:Name="Fr_Filters" IsVisible="false">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="70"/>
+                                    <RowDefinition Height="70"/>
+                                    <RowDefinition Height="70"/>
+                                    <RowDefinition Height="70"/>
+                                    <RowDefinition Height="70"/>
+                                    <RowDefinition Height="70"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="Kategoria:" VerticalOptions="Center" TextColor="Black" Margin="10" FontSize="20"/>
+                                <Picker x:Name="Pck_Category" Grid.Column="1" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <Label Text="Poziom stanowiska" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="Black" Margin="10" FontSize="20"/>
+                                <Picker x:Name="Pck_PositionLevel" Grid.Column="1" Grid.Row="1" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <Label Text="Rodzaj umowy:" VerticalOptions="Center" Grid.Column="0" Grid.Row="2" TextColor="Black" Margin="10" FontSize="20"/>
+                                <Picker x:Name="Pck_ContractType" Grid.Column="1" Grid.Row="2" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <Label Text="Wymiar pracy:" VerticalOptions="Center" Grid.Column="0" Grid.Row="3" TextColor="Black" Margin="10" FontSize="20"/>
+                                <Picker x:Name="Pck_WorkingTime" Grid.Column="1" Grid.Row="3" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <Label Text="Tryb pracy:" VerticalOptions="Center" Grid.Column="0" Grid.Row="4" TextColor="Black" Margin="10" FontSize="20"/>
+                                <Picker x:Name="Pck_WorkType" Grid.Column="1" Grid.Row="4" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <Label Text="Lokalizacja:" VerticalOptions="Center" Grid.Column="0" Grid.Row="5" TextColor="Black" Margin="10" FontSize="20"/>
+                                <Entry x:Name="Etr_City" Grid.Column="1" Grid.Row="5" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black"/>
+                            </Grid>
+                        </Frame>
+                     
+                        
+                        <Button Text="Szukaj" Margin="10" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource Btn_Look}" BackgroundColor="White" Clicked="Btn_SearchAnnouncment_Click"/>
+                    </Grid>
+                </Grid>
+                <ListView SelectionMode="None" Grid.Row="1" x:Name="LV_Announcments" Margin="10,20,10,0" HorizontalOptions="Center" RowHeight="220">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="10" BorderColor="Black" Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                            <RowDefinition Height="50"/>
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding Name}" Grid.ColumnSpan="2" Margin="10" TextColor="Black"/>
+                                        <Image Source="{Binding CompanyImage}" Grid.Row="1" Aspect="Fill"/>
+                                        <StackLayout Grid.Column="1" Grid.Row="1">
+                                            <Label Text="{Binding PositionName}" TextColor="Black" MaxLines="1" LineBreakMode="TailTruncation" FontSize="15"/>
+                                            <Label Text="{Binding City}" FontSize="10" TextColor="Black"/>
+                                        </StackLayout>
+                                        <Button Grid.Row="2" Grid.ColumnSpan="2" Margin="10"  Text="Zobacz" CommandParameter="{Binding .}" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Look}" Clicked="GoToAnnouncment"/>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
         </ScrollView>
     </ContentPage.Content>

@@ -19,8 +19,8 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Ogłoszenia firmy"/>
-            <ListView x:Name="LV_Announcments" Grid.Row="50">
+            <Label Text="Ogłoszenia firmy" Margin="10" TextColor="Black" FontSize="20"/>
+            <ListView x:Name="LV_Announcments" Grid.Row="70">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

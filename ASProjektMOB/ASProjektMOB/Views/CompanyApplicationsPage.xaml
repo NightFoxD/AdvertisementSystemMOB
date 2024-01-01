@@ -1,12 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ASProjektMOB.Views.CompanyApplicationsPage">
+             x:Class="ASProjektMOB.Views.CompanyApplicationsPage"
+             BackgroundColor="#e3e3e3"
+             >
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="Btn_Edit">
+            <Setter Property="BackgroundColor" Value="#e8e8e8"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="1"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <ScrollView>
+                <StackLayout>
+                    <Label x:Name="TxtB_Application_Info" Text="Firma nie posiada narazie żadnych aplikujących" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center" TextColor="Black" Margin="10"/>
+                    <ListView x:Name="LV_CompanyApplications" Background="Transparent" RowHeight="150" SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Frame BorderColor="Black" Padding="5" Margin="10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="auto"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto"/>
+                                                        <ColumnDefinition Width="auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="auto"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Text="{Binding AnnouncmentName}" VerticalOptions="Center" TextColor="Black"/>
+                                                    <Label  Grid.Column="1" Text="{Binding PositionName}"  VerticalOptions="Center" TextColor="Black"/>
+                                                    <Button Grid.ColumnSpan="2" Grid.Row="1" Text="Zobacz ogłoszenie" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}"  HorizontalOptions="Center" VerticalOptions="Center" CommandParameter="{Binding Announcment}" Clicked="GoToAnnouncment"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1" Margin="5">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="70"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Text="{Binding UserName}" VerticalOptions="Center" TextColor="Black"/>
+                                                    <Label Grid.Column="1" Text="{Binding UserSurname}" TextColor="Black" VerticalOptions="Center"/>
+                                                </Grid>
+                                                <Button  Grid.Column="2" VerticalOptions="Center"   HorizontalOptions="Center" Text="Usuń" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" CommandParameter="{Binding .}" Clicked="Btn_DeleteApplication"/>
+                                            </Grid>
+
+                                        </Grid>
+                                    </Frame>
+
+
+                                </ViewCell>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

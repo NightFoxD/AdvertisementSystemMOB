@@ -375,6 +375,17 @@ namespace AdvertisementSystem.Classes
                 return null;
             }
         }
+        public User GetUser(int id)
+        {
+            try
+            {
+                return _database.Table<User>().Where(item => item.UserID == id).FirstAsync().Result;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public User GetUser(User user)
         {
             return _database.Table<User>().Where(item => item.Login == user.Login && item.Password == user.Password).FirstAsync().Result;

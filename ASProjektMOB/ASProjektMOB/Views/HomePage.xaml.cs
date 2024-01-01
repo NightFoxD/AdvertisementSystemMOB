@@ -20,11 +20,13 @@ namespace ASProjektMOB.Views
             InitializeComponent();
             User = user;
             LV_Announcments.ItemsSource = GetAnnouncmentAllInformations();
+            CV_Comapnies.ItemsSource = App.DataAccess.GetCompanyList();
         }
         public HomePage()
         {
             InitializeComponent();
             LV_Announcments.ItemsSource = GetAnnouncmentAllInformations();
+            CV_Comapnies.ItemsSource = App.DataAccess.GetCompanyList();
         }
         public List<AnnouncmentItem> GetAnnouncmentAllInformations()
         {
@@ -35,11 +37,6 @@ namespace ASProjektMOB.Views
             }
             return items;
         }
-        private void Btn_More_Announcments_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void GoToAnnouncment(object sender, EventArgs e)
         {
             AnnouncmentItem tmpItem = ((Button)sender).CommandParameter as AnnouncmentItem;
@@ -55,6 +52,12 @@ namespace ASProjektMOB.Views
                     Navigation.PushAsync(new AnnouncmentPage(item));
                 }
             }
+        }
+
+        private void Btn_CopanyLook_Clicked(object sender, EventArgs e)
+        {
+            Company company = ((Button)sender).CommandParameter as Company;
+            Navigation.PushAsync(new CompanyPage(company,false));
         }
     }
 }

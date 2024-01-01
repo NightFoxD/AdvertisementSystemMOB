@@ -26,11 +26,11 @@
             <Label x:Name="Lbl_SecondPassword" Text="Powtórz hasło: "  TextColor="black" FontSize="25"/>
             <Entry x:Name="Etr_Password_2" Keyboard="Default" IsPassword="True"  TextColor="black" PlaceholderColor="Gray" Placeholder="Password"/>
             <StackLayout Orientation="Horizontal">
-                <Label x:Name="Lbl_Admin" Text="Admin ?"/>
+                <Label x:Name="Lbl_Admin" Text="Admin ?" TextColor="Black"/>
                 <Switch x:Name="Stch_Admin"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Firma ?"/>
+                <Label Text="Firma ?" TextColor="Black"/>
                 <Switch x:Name="Stch_Company" Toggled="Stch_Company_Toggled"/>
             </StackLayout>
             <Button x:Name="Btn_LoginRegister" Clicked="Btn_LoginRegister_Clicked" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}"/>

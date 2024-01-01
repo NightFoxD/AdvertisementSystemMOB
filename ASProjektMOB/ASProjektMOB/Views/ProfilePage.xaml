@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ASProjektMOB.Views.ProfilePage"
-             NavigationPage.HasBackButton="False" NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasNavigationBar="False"
              BackgroundColor="#e0e0e0"
              >
     <ContentPage.Resources>
@@ -45,7 +45,7 @@
                     </Grid.ColumnDefinitions>
                     <StackLayout>
                         <Frame BackgroundColor="Transparent" Padding="0" CornerRadius="15" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start">
-                            <Image x:Name="I_UserPfp" Source="icon_defaultpfp.png"/>
+                            <Image x:Name="I_UserPfp" Aspect="Fill" Source="icon_defaultpfp.png"/>
                         </Frame>
                         <Button x:Name="Btn_EditPfp" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Text="Edytuj zdjęcie" Clicked="Btn_EditPfp_Click" IsVisible="false"/>
                     </StackLayout>
@@ -436,7 +436,7 @@
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="auto"/>
                                                         </Grid.RowDefinitions>
-                                                        <Label Text="{Binding Name}" VerticalOptions="Center"/>
+                                                        <Label Text="{Binding Name}" Margin="10" VerticalOptions="Center"/>
                                                         <Button x:Name="Del_SkillItem" Grid.Column="1" Margin="10" Text="Usuń" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Del_SkillItem_Clicked" CommandParameter="{Binding .}"/>
                                                     </Grid>
                                                 </Frame>
@@ -512,18 +512,37 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="70"/>
                         </Grid.ColumnDefinitions>
                         <Label Text="Zaaplikowania" FontSize="25" HorizontalOptions="Start" TextColor="Black" VerticalOptions="Center" Margin="10"/>
-                        <StackLayout Grid.Row="1" >
+                        <ImageButton Source="icon_refresh.png" Grid.Column="1" Margin="10" Clicked="ImageButton_Clicked" BackgroundColor="Transparent"/>
+                        <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
                              <Frame  BackgroundColor="#e8e8e8">
-                                <ListView x:Name="LV_UserApplications" >
+                                <ListView SelectionMode="None" Grid.Row="1" x:Name="LV_UserApplications" Margin="10,20,10,0" HorizontalOptions="Center" RowHeight="150">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-
+                                            <ViewCell>
+                                                <Frame CornerRadius="10" BorderColor="Black" Margin="5">
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="auto"/>
+                                                            <RowDefinition Height="50"/>
+                                                        </Grid.RowDefinitions>
+                                                        <Label Text="{Binding Name}" TextColor="black" VerticalOptions="Center" Margin="10"/>
+                                                        <Label Text="{Binding PositionName}" TextColor="black" VerticalOptions="Center"  Grid.Column="1" FontSize="15"/>
+                                                        <Button Grid.Row="1"  VerticalOptions="Center" Text="Zobacz" CommandParameter="{Binding .}" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="GoToAnnouncment"/>
+                                                        <Button Grid.Row="1" Grid.Column="1" VerticalOptions="Center" Text="Cofnij" CommandParameter="{Binding .}" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_DeleteApplication"/>
+                                                    </Grid>
+                                                </Frame>
+                                            </ViewCell>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
