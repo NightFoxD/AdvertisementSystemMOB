@@ -104,6 +104,11 @@ namespace ASProjektMOB.Views
                     User User = new User();
                     User.Login = Etr_Login.Text;
                     User.Password = HashPassword.Hash(Etr_Password_1.Text);
+                    if (App.DataAccess.GetUser(User.Login, User.Password) != null)
+                    {
+                        DisplayAlert("Error", "Konto już istnieje", "OK");
+                        return;
+                    }
                     if (Stch_Admin.IsToggled)
                     {
                         User.AccountTypeID = 2;
@@ -123,13 +128,19 @@ namespace ASProjektMOB.Views
                 {
                     if (!CustomValidations.IsCorrectText(Etr_CompanyName.Text))
                     {
-                        DisplayAlert("Error", "7Nazwa firmy powinna zawierać tylko litery", "OK");
+                        DisplayAlert("Error", "Nazwa firmy powinna zawierać tylko litery", "OK");
                         return;
                     }
+                    
                     Company Company = new Company();
                     Company.Login = Etr_Login.Text;
                     Company.Name = Etr_CompanyName.Text;
                     Company.Password = HashPassword.Hash(Etr_Password_1.Text);
+                    if (App.DataAccess.GetCompany(Company.Login, Company.Password) != null)
+                    {
+                        DisplayAlert("Error", "Konto już istnieje", "OK");
+                        return;
+                    }
                     Company.CompanyImage = "icon_default_company.png";
                     App.DataAccess.Add_Company(Company);
                     Etr_Login.Text = string.Empty;

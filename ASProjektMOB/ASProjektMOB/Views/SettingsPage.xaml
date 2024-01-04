@@ -14,8 +14,7 @@
     <ContentPage.Content>
         <ScrollView Margin="10,30,10,20">
             <StackLayout Orientation="Vertical" >
-                <Button x:Name="Btn_Settings" Grid.Row="2" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Text="Ustawienia" Clicked="Btn_Settings_Clicked"/>
-                <Button x:Name="Btn_LogOut" Grid.Row="3" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Text="Wyloguj się" Clicked="Btn_LogOut_Clicked"/>
+                <Button x:Name="Btn_LogOut" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Text="Wyloguj się" Clicked="Btn_LogOut_Clicked"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

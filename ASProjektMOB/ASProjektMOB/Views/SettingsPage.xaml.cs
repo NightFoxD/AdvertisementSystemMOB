@@ -23,10 +23,6 @@ namespace ASProjektMOB.Views
         {
             await page.Navigation.PopAsync();
         }
-        private void Btn_Settings_Clicked(object sender, EventArgs e)
-        {
-
-        }
 
 
       

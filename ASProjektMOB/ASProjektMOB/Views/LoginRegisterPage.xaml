@@ -18,11 +18,11 @@
         <StackLayout HorizontalOptions="Center" Margin="0,30,0,30" Padding="25" >
             <Image Source="icon_swiftlly_transparent_fullname.png" Aspect="Fill"/>
             <Label  Text="Login" FontSize="25" TextColor="black"/>
-            <Entry x:Name="Etr_Login" Text="user" Keyboard="Default" Placeholder="Login" PlaceholderColor="Gray" TextColor="Black" />
+            <Entry x:Name="Etr_Login"  Keyboard="Default" Placeholder="Login" PlaceholderColor="Gray" TextColor="Black" />
             <Label x:Name="Lbl_CompnayName" Text="Nazwa Firmy" FontSize="25"  TextColor="black"/>
             <Entry x:Name="Etr_CompanyName"  Keyboard="Default" PlaceholderColor="Gray" Placeholder="Login"  TextColor="black"/>
             <Label  Text="Hasło: " FontSize="25"  TextColor="black"/>
-            <Entry x:Name="Etr_Password_1" Text="123" Keyboard="Default"  TextColor="black" PlaceholderColor="Gray" IsPassword="True" Placeholder="Password"/>
+            <Entry x:Name="Etr_Password_1" Keyboard="Default"  TextColor="black" PlaceholderColor="Gray" IsPassword="True" Placeholder="Password"/>
             <Label x:Name="Lbl_SecondPassword" Text="Powtórz hasło: "  TextColor="black" FontSize="25"/>
             <Entry x:Name="Etr_Password_2" Keyboard="Default" IsPassword="True"  TextColor="black" PlaceholderColor="Gray" Placeholder="Password"/>
             <StackLayout Orientation="Horizontal">
