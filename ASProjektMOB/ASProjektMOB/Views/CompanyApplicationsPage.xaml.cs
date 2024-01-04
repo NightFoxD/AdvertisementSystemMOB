@@ -55,7 +55,7 @@ namespace ASProjektMOB.Views
         }
         private void GoToAnnouncment(object sender, EventArgs e)
         {
-            AnnouncmentItem tmpItem = ((Button)sender).CommandParameter as AnnouncmentItem;
+            ApplicationItem tmpItem = ((Button)sender).CommandParameter as ApplicationItem;
             if (tmpItem != null)
             {
                 Announcment item = tmpItem.Announcment;

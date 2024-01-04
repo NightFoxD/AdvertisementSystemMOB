@@ -390,7 +390,7 @@ namespace AdvertisementSystem.Classes
         {
             return _database.Table<User>().Where(item => item.Login == user.Login && item.Password == user.Password).FirstAsync().Result;
         }
-            public int InserUser(User newUser)
+         public int InserUser(User newUser)
         {
             return _database.InsertAsync(newUser).Result;
         }

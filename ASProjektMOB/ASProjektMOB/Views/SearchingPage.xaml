@@ -47,6 +47,7 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
+                                    <ColumnDefinition Width="70"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="70"/>
@@ -58,16 +59,27 @@
                                 </Grid.RowDefinitions>
                                 <Label Text="Kategoria:" VerticalOptions="Center" TextColor="Black" Margin="10" FontSize="20"/>
                                 <Picker x:Name="Pck_Category" Grid.Column="1" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <ImageButton Source="icon_clear.png" Grid.Column="2" Aspect="Fill" Margin="5" BackgroundColor="Transparent" Clicked="IB_ClearCategory_Click"/>
+                                
                                 <Label Text="Poziom stanowiska" VerticalOptions="Center" Grid.Column="0" Grid.Row="1" TextColor="Black" Margin="10" FontSize="20"/>
                                 <Picker x:Name="Pck_PositionLevel" Grid.Column="1" Grid.Row="1" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <ImageButton Source="icon_clear.png" Grid.Row="1" Grid.Column="2" Aspect="Fill" Margin="5" BackgroundColor="Transparent" Clicked="IB_ClearPositionLevel_Click"/>
+                                
                                 <Label Text="Rodzaj umowy:" VerticalOptions="Center" Grid.Column="0" Grid.Row="2" TextColor="Black" Margin="10" FontSize="20"/>
                                 <Picker x:Name="Pck_ContractType" Grid.Column="1" Grid.Row="2" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <ImageButton Source="icon_clear.png" Grid.Row="2" Grid.Column="2" Aspect="Fill" Margin="5" BackgroundColor="Transparent" Clicked="IB_ClearContractType_Click"/>
+                                
                                 <Label Text="Wymiar pracy:" VerticalOptions="Center" Grid.Column="0" Grid.Row="3" TextColor="Black" Margin="10" FontSize="20"/>
                                 <Picker x:Name="Pck_WorkingTime" Grid.Column="1" Grid.Row="3" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <ImageButton Source="icon_clear.png" Grid.Row="3" Grid.Column="2" Aspect="Fill" Margin="5" BackgroundColor="Transparent" Clicked="IB_ClearWorkingTime_Click"/>
+                                
                                 <Label Text="Tryb pracy:" VerticalOptions="Center" Grid.Column="0" Grid.Row="4" TextColor="Black" Margin="10" FontSize="20"/>
                                 <Picker x:Name="Pck_WorkType" Grid.Column="1" Grid.Row="4" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black" SelectedIndex="0"/>
+                                <ImageButton Source="icon_clear.png" Grid.Row="4" Grid.Column="2" Aspect="Fill" Margin="5" BackgroundColor="Transparent" Clicked="IB_ClearWorkType_Click"/>
+                                
                                 <Label Text="Lokalizacja:" VerticalOptions="Center" Grid.Column="0" Grid.Row="5" TextColor="Black" Margin="10" FontSize="20"/>
                                 <Entry x:Name="Etr_City" Grid.Column="1" Grid.Row="5" BackgroundColor="#e8e8e8" Margin="10" TextColor="Black"/>
+                                <ImageButton Source="icon_clear.png" Grid.Row="5" Grid.Column="2" Aspect="Fill" Margin="5" BackgroundColor="Transparent" Clicked="IB_ClearCity_Click"/>
                             </Grid>
                         </Frame>
                      

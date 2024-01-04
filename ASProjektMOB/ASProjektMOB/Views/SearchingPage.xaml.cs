@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,14 +33,15 @@ namespace ASProjektMOB.Views
             List<AnnouncmentItem> items = new List<AnnouncmentItem>();
             foreach (var item in App.DataAccess.GetAnnouncmentList())
             {
-                if ((string.IsNullOrEmpty(Etr_Name.Text) || item.Name.ToLower().StartsWith(Etr_Name.Text.ToLower())) &&
-                    (Pck_Category.SelectedIndex < 0 || item.CategoryID == Pck_Category.Items[Pck_Category.SelectedIndex]) &&
-                    (Pck_PositionLevel.SelectedIndex < 0 || item.PositionLevel == Pck_PositionLevel.Items[Pck_PositionLevel.SelectedIndex]) &&
-                    (Pck_ContractType.SelectedIndex < 0 || item.ContractType == Pck_ContractType.Items[Pck_ContractType.SelectedIndex]) &&
-                    (Pck_WorkingTime.SelectedIndex < 0 || (item.WorkingTime != null && item.WorkingTime.ToLower() == Pck_WorkingTime.Items[Pck_WorkingTime.SelectedIndex].ToString().ToLower())) &&
-                    (Pck_WorkType.SelectedIndex < 0 || (item.WorkType != null && item.WorkType.ToLower() == Pck_WorkType.Items[Pck_WorkType.SelectedIndex].ToString().ToLower())) &&
-                    (string.IsNullOrEmpty(Etr_City.Text) || item.City.ToLower().StartsWith(Etr_City.Text.ToLower()))
-                )
+                bool nameCondition = string.IsNullOrEmpty(Etr_Name.Text) || item.Name.ToLower().StartsWith(Etr_Name.Text.ToLower());
+                bool nameCity = string.IsNullOrEmpty(Etr_City.Text) || item.City.ToLower().StartsWith(Etr_City.Text.ToLower());
+                bool categoryCondition = Pck_Category.SelectedIndex < 0 || item.CategoryID == Pck_Category.Items[Pck_Category.SelectedIndex];
+                bool positionLevelCondition = Pck_PositionLevel.SelectedIndex < 0 || item.PositionLevel == Pck_PositionLevel.Items[Pck_PositionLevel.SelectedIndex];
+                bool contractTypeCondition = Pck_ContractType.SelectedIndex < 0 || item.ContractType == Pck_ContractType.Items[Pck_ContractType.SelectedIndex];
+                bool workingTimeCondition = Pck_WorkingTime.SelectedIndex < 0 || item.ContractType == Pck_WorkingTime.Items[Pck_WorkingTime.SelectedIndex];
+                bool workTypeCondition = Pck_WorkType.SelectedIndex < 0 || item.ContractType == Pck_WorkType.Items[Pck_WorkType.SelectedIndex];
+
+                if (nameCondition && categoryCondition && positionLevelCondition && contractTypeCondition && workingTimeCondition && workTypeCondition && nameCity)
                 {
                     items.Add(new AnnouncmentItem(item));
                 }
@@ -94,12 +96,43 @@ namespace ASProjektMOB.Views
 
         private void Btn_SearchAnnouncment_Click(object sender, EventArgs e)
         {
-            Initialize();
+            LV_Announcments.ItemsSource = new ObservableCollection<AnnouncmentItem>(GetAnnouncmentAllInformations());
+            Fr_Filters.IsVisible = false;
         }
 
         private void Btn_Filters_Click(object sender, EventArgs e)
         {
             Fr_Filters.IsVisible = !Fr_Filters.IsVisible;
+        }
+
+        private void IB_ClearCategory_Click(object sender, EventArgs e)
+        {
+            Pck_Category.SelectedItem = null;
+        }
+
+        private void IB_ClearPositionLevel_Click(object sender, EventArgs e)
+        {
+            Pck_PositionLevel.SelectedItem = null;
+        }
+
+        private void IB_ClearContractType_Click(object sender, EventArgs e)
+        {
+            Pck_ContractType.SelectedItem = null;
+        }
+
+        private void IB_ClearWorkingTime_Click(object sender, EventArgs e)
+        {
+            Pck_WorkingTime.SelectedItem = null;  
+        }
+
+        private void IB_ClearWorkType_Click(object sender, EventArgs e)
+        {
+            Pck_WorkType.SelectedItem = null;
+        }
+
+        private void IB_ClearCity_Click(object sender, EventArgs e)
+        {
+            Etr_City.Text = string.Empty;
         }
     }
 }

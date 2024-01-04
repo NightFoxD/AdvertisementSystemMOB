@@ -20,7 +20,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Ogłoszenia firmy" Margin="10" TextColor="Black" FontSize="20"/>
-            <ListView x:Name="LV_Announcments" Grid.Row="70">
+            <ListView x:Name="LV_Announcments" RowHeight="60" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -30,6 +30,9 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
                                 <Label Text="{Binding Name}" Style="{StaticResource Lbl_Text}" VerticalOptions="Center"/>
                                 <Button x:Name="Btn_DelAnnouncment" Grid.Column="1" Text="Usuń" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_DelAnnouncment_Clicked" CommandParameter="{Binding .}"/>
                                 <Button x:Name="Btn_EditAnnouncment" Grid.Column="2" Text="Edytuj" BackgroundColor="#e8e8e8" Style="{StaticResource Btn_Edit}" Clicked="Btn_EditAnnouncment_Clicked" CommandParameter="{Binding .}"/>

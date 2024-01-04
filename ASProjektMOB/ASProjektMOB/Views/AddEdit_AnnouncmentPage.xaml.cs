@@ -204,6 +204,7 @@ namespace ASProjektMOB.Views
                 AddEdit_Announcment.WorkType = Pck_WorkType.Items[Pck_WorkType.SelectedIndex];
                 AddEdit_Announcment.WorkingTime = Pck_WorkTime.Items[Pck_WorkTime.SelectedIndex];
                 AddEdit_Announcment.Benefits = string.Join(";", itemsBenefits.Select(item => item.Content));
+                AddEdit_Announcment.Requirements = string.Join(";", itemsRequirements.Select(item => item.Content));
                 AddEdit_Announcment.Responsibilities = string.Join(";", itemsResponsibilities.Select(item => item.Content));
                 AddEdit_Announcment.StartDate = DateTime.Now;
                 AddEdit_Announcment.EndDate = DP_EndDate.Date;
